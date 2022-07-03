@@ -1,0 +1,148 @@
+.hotelContainer {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.hotelWrapper {
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 5px;
+    padding: 1rem;
+    -webkit-box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.4);
+}
+
+.hotelImages {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: .25rem;
+}
+
+.hotelImg {
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hotelTitle {
+    font-size: 1.5rem;
+    padding-bottom: .5rem;
+    color: hsl(0, 0%, 20%);
+}
+
+.hotelAddress {
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+    font-size: .75rem;
+}
+
+.hotelDistance {
+    margin: .5rem 0 .25rem 0;
+    font-size: .95rem;
+    color: hsl(207, 100%, 50%);
+    font-weight: 500;
+}
+
+.hotelPriceBonus {
+    margin-bottom: .5rem;
+    font-size: .95rem;
+    color: #008009;
+    font-weight: 500;
+}
+
+.slider {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sliderWrapper {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sliderImg {
+    height: 70vh;
+    -webkit-box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.4);
+}
+
+.arrowL {
+    color: hsl(0, 0%, 90%);
+    background-color: rgba(0, 0, 0, 0.35);
+    height: 70vh;
+    font-size: 6rem;
+    border-radius: 10px 0 0 10px;
+    -webkit-box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+.arrowR {
+    color: hsl(0, 0%, 90%);
+    background-color: rgba(0, 0, 0, 0.35);
+    height: 70vh;
+    font-size: 6rem;
+    border-radius: 0 10px 10px 0;
+    -webkit-box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+.close {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    background-color: rgba(0, 0, 0, 0.35);
+    color: hsl(0, 0%, 90%);
+    height: 50px;
+    width: 50px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+.container-dots {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: .25rem;
+    border-radius: 5px;
+    position: absolute;
+    left: 50%;
+    top: calc(85vh - 25px);
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid white;
+    margin: 0 3px;
+    background: white;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: hsl(0, 0%, 10%);
+}

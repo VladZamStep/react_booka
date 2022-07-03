@@ -1,0 +1,51 @@
+.propListContainer {
+    width: 100vw;
+    -webkit-box-shadow: var(--bottomShadow);
+    box-shadow: var(--bottomShadow);
+    padding-bottom: 1.5em;
+}
+
+.propList {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.25em;
+    justify-content: space-between;
+}
+
+.pListItem {
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.pListItem:hover {
+    transform: scale(1.04);
+}
+
+.imgPlate {
+    border-radius: var(--smallBR);
+    height: 150px;
+    margin-bottom: .5em;
+}
+
+.imgPlate>img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: var(--smallBR);
+    -webkit-box-shadow: var(--standartShadow);
+    box-shadow: var(--standartShadow);
+}
+
+.pListDesc h1 {
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+
+.pListDesc h2 {
+    font-size: .9rem;
+    color: var(--middleGray);
+    font-weight: 300;
+}

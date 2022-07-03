@@ -1,0 +1,75 @@
+.datatable {
+    height: calc(100vh - 50px);
+    padding: 1.1em;
+    border-left: 1px solid var(--superLightGray);
+
+    .dataGrid {
+        border-color: var(--lightGray);
+    }
+
+    .css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root {
+        color: var(--lightBlue);
+    }
+
+    .css-f3jnds-MuiDataGrid-columnHeaders,
+    .css-r11z79-MuiDataGrid-root .MuiDataGrid-cell,
+    .css-17jjc08-MuiDataGrid-footerContainer {
+        border-color: var(--lightGray);
+    }
+
+    .datatableTitle {
+        width: 100%;
+        font-size: 1.3em;
+        color: var(--middleGray);
+        margin-bottom: .8em;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-transform: capitalize;
+
+        .link {
+            color: var(--lightBlue);
+            font-size: 1rem;
+            font-weight: 400;
+            border: 1px solid var(--lightBlue);
+            padding: .25em .5em;
+            border-radius: var(--smallBR);
+            cursor: pointer;
+        }
+    }
+
+    .cellWithImg {
+        display: flex;
+        align-items: center;
+
+        .cellImg {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1em;
+        }
+    }
+
+    .cellAction {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+
+        .viewBtn {
+            padding: .15em .25em;
+            border-radius: var(--smallBR);
+            color: var(--hardBlue);
+            border: 1px dotted var(--hardBlue);
+            cursor: pointer;
+        }
+
+        .deleteBtn {
+            padding: 2px 5px;
+            border-radius: 5px;
+            color: var(--red);
+            border: 1px dotted var(--red);
+            cursor: pointer;
+        }
+    }
+}

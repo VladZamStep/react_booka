@@ -1,0 +1,106 @@
+.header {
+    background-color: var(--white);
+    color: var(--middleGray);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    -webkit-box-shadow: var(--bottomShadow);
+    box-shadow: var(--bottomShadow);
+}
+
+.headerTitle {
+    font-size: 2rem;
+    margin-top: 2em;
+}
+
+.headerDescription {
+    margin: 1em 0;
+}
+
+.headerContainer {
+    width: 100%;
+    max-width: 1024px;
+    margin: 2em auto 4em auto;
+}
+
+.headerContainer.listMode {
+    margin: 2em 0;
+}
+
+
+.headerBtn {
+    height: 40px;
+    font-size: .9rem;
+    background-color: var(--lightBlue);
+    color: var(--white);
+    border: none;
+    border-radius: var(--smallBR);
+    font-weight: 500;
+    padding-inline: 1.1em;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.headerBtn:hover {
+    background-color: var(--middleBlue);
+    -webkit-box-shadow: var(--thinShadow);
+    box-shadow: var(--thinShadow);
+}
+
+.headerSearch {
+    height: 30px;
+    background-color: var(--white);
+    border: 4px solid var(--lightBlue);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 26px 7px 26px 20px;
+    border-radius: var(--smallBR);
+    position: absolute;
+    bottom: -30px;
+    width: 100%;
+    max-width: 1024px;
+}
+
+.headerIcon {
+    color: var(--lightBlue);
+}
+
+/*repeat!*/
+.headerSearchItem {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+}
+
+/*repeat!*/
+.headerSearchInput {
+    border: none;
+    outline: none;
+    font-weight: 500;
+    color: var(--middleGray);
+}
+
+.headerSearchText {
+    cursor: pointer;
+    color: var(--lightGray);
+}
+
+.date {
+    position: absolute;
+    top: 64px;
+    z-index: 2;
+    -webkit-box-shadow: var(--standartShadow);
+    box-shadow: var(--standartShadow);
+}
+
+.headerSearchBtn {
+    width: 100%;
+    background-color: var(--lightGray);
+}
+
+.headerSearchBtn:hover {
+    background-color: var(--middleGray);
+    -webkit-box-shadow: var(--thinShadow);
+    box-shadow: var(--thinShadow);
+}

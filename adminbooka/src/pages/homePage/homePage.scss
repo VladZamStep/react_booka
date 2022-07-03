@@ -1,0 +1,26 @@
+.homePage {
+    display: flex;
+
+    .homeContainer {
+        flex: 6;
+
+        .welcome {
+            border-left: 1px solid var(--superLightGray);
+            height: calc(100% - 50px);
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(150deg, var(--white), var(--white), var(--lightGray));
+
+            .welcomeTitle {
+                margin-bottom: .5em;
+            }
+
+            .welcomeInfo {
+                line-height: 2em;
+            }
+        }
+    }
+}

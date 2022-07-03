@@ -1,0 +1,59 @@
+.options {
+    color: var(--hardGray);
+    background-color: var(--white);
+    position: absolute;
+    top: 64px;
+    -webkit-box-shadow: var(--thinShadow);
+    box-shadow: var(--thinShadow);
+    overflow: hidden;
+    z-index: 2;
+}
+
+.optionItem {
+    width: 260px;
+    display: flex;
+    justify-content: space-between;
+    padding: .8em;
+    background-color: var(--white);
+}
+
+.optionText {
+    display: flex;
+    align-items: center;
+    font-size: .9rem;
+    color: var(--hardGray);
+}
+
+.optionBtn {
+    width: 40px;
+    aspect-ratio: 1;
+}
+
+.optionCounter {
+    display: flex;
+    align-items: center;
+    gap: .8em;
+}
+
+.optionBtn {
+    outline: none;
+    border: 1px solid var(--lightBlue);
+    border-radius: var(--smallBR);
+    background-color: inherit;
+    font-size: 1.1rem;
+    color: var(--middleBlue);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.optionBtn:hover {
+    background-color: var(--superLightBlue);
+    border: 1px solid var(--middleBlue);
+}
+
+.optionBtn:disabled {
+    cursor: default;
+    background-color: var(--superLightGray);
+    border: none;
+    color: var(--white);
+}

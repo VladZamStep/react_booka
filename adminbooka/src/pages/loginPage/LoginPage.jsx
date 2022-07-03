@@ -1,0 +1,73 @@
+import axios from 'axios'
+import React from 'react'
+import { useState } from 'react'
+import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '../../components/context/AuthContext'
+import './loginPage.scss'
+
+const LoginPage = () => {
+
+    const [credentials, setCredentials] = useState({
+        username: undefined,
+        password: undefined,
+    })
+
+    const { loading, error, dispatch } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+
+    const handleChange = (e) => {
+        setCredentials(prev => ({ ...prev, [e.target.id]: e.target.value }));
+    };
+
+    const handleClick = async (e) => {
+        e.preventDefault();
+        dispatch({ type: "LOGIN_START" });
+        try {
+            const res = await axios.post("http://localhost:8800/api/auth/login", credentials);
+            if (res.data.isAdmin) {
+                dispatch({
+                    type: "LOGIN_SUCCESS",
+                    payload: res.data.details
+                });
+                navigate("/")
+            }
+            else {
+                dispatch({
+                    type: "LOGIN_FAILED",
+                    payload: { message: "You are not allowed!" }
+                })
+            }
+        } catch (err) {
+            dispatch({
+                type: "LOGIN_FAILED",
+                payload: err.response.data,
+            })
+            // console.log(err.response.data.body)
+        }
+    }
+
+    return (
+        <div className='loginPage'>
+            <div className="loginContainer">
+                <input
+                    type="text"
+                    id='username'
+                    placeholder='username'
+                    onChange={handleChange}
+                />
+                <input
+                    type="password"
+                    id='password'
+                    placeholder='password'
+                    onChange={handleChange}
+                />
+                <button disabled={loading} className="submitBtn" onClick={handleClick}>Login</button>
+                {error && <span>{error.message}</span>}
+            </div>
+        </div>
+    )
+}
+
+export default LoginPage

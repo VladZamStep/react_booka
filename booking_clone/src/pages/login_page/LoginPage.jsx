@@ -1,0 +1,67 @@
+import axios from 'axios'
+import React from 'react'
+import { useState } from 'react'
+import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '../../context/AuthContext'
+import './loginPage.css'
+
+const LoginPage = () => {
+
+    const [credentials, setCredentials] = useState({
+        username: undefined,
+        password: undefined,
+    })
+
+    const { loading, error, dispatch } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+
+    const handleChange = (e) => {
+        setCredentials(prev => ({ ...prev, [e.target.id]: e.target.value }));
+    };
+
+    const handleClick = async (e) => {
+        e.preventDefault();
+        dispatch({ type: "LOGIN_START" });
+        try {
+            const res = await axios.post("http://localhost:8800/api/auth/login", credentials);
+            dispatch({
+                type:
+                    "LOGIN_SUCCESS",
+                payload: res.data.details
+            });
+            navigate("/")
+        } catch (err) {
+            dispatch({
+                type:
+                    "LOGIN_FAILED",
+                payload: err.response.data
+            })
+        }
+    }
+
+    return (
+        <div className='loginPage'>
+            <img src="https://www.tripsavvy.com/thmb/9UCe7bHm9MK9s_UO1nr_FcN-bKE=/5095x3383/filters:fill(auto,1)/usa--oregon--bend--illuminated-tent-by-lake-in-mountains-sb10070057l-001-5c3f91f746e0fb00012b9a84.jpg" alt="" />
+            <div className="loginContainer">
+                <input
+                    type="text"
+                    id='username'
+                    placeholder='Username'
+                    onChange={handleChange}
+                />
+                <input
+                    type="password"
+                    id='password'
+                    placeholder='Password'
+                    onChange={handleChange}
+                />
+                <button disabled={loading} className="submitBtn" onClick={handleClick}>Login</button>
+                {error && <span>{error.message}</span>}
+            </div>
+        </div>
+    )
+}
+
+export default LoginPage

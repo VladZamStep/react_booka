@@ -1,0 +1,45 @@
+.navbar {
+    height: 50px;
+    border-bottom: 1px solid var(--superLightGray);
+    display: flex;
+    align-items: center;
+    font-size: .8rem;
+    color: var(--middleGray);
+
+    .navbarContainer {
+        width: 100%;
+        padding: 1.4em;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        .item {
+            display: flex;
+            align-items: center;
+            margin-right: 1.4em;
+            cursor: pointer;
+
+            span {
+                display: flex;
+                align-items: center;
+            }
+
+            .icon {
+                font-size: 1.15rem;
+
+            }
+
+            &:first-child {
+                display: flex;
+                gap: .25em;
+                cursor: default;
+            }
+
+            .profilePhoto {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+            }
+        }
+    }
+}

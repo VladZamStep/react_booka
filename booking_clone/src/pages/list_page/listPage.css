@@ -1,0 +1,134 @@
+.listContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    position: relative;
+}
+
+.listWrapper {
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    gap: 20px;
+}
+
+.listSearch {
+    flex: 1;
+    background-color: white;
+    position: sticky;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: hsl(0, 0%, 20%);
+    top: 20px;
+    -webkit-box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.4);
+    height: max-content;
+}
+
+.listTitle {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.listItem {
+    display: flex;
+    flex-direction: column;
+    padding: .2rem 0;
+}
+
+.listItem>label {
+    font-size: .75rem;
+}
+
+.listItem>input {
+    height: 40px;
+    padding-inline: 10px;
+    margin-top: .3rem;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    border: 2px solid rgb(61, 145, 255);
+    transition: 0.2s ease-out;
+}
+
+.listItem>input:hover {
+    border: 2px solid hsl(214, 100%, 32%);
+}
+
+.listItem>span {
+    height: 40px;
+    padding-inline: 10px;
+    margin: .3rem 0;
+    background-color: white;
+    border: 2px solid rgb(61, 145, 255);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: .85rem;
+    border-radius: 5px;
+    transition: 0.2s ease-out;
+}
+
+.listItem>span:hover {
+    border: 2px solid hsl(214, 100%, 32%);
+}
+
+.listSearch>button {
+    width: 100%;
+    height: 40px;
+    padding-inline: 10px;
+    margin: .3rem 0;
+    background-color: hsl(207, 100%, 50%);
+    color: white;
+    cursor: pointer;
+    font-size: .9rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    transition: 0.2s ease-out;
+}
+
+.listSearch>button:hover {
+    background-color: hsl(214, 100%, 32%);
+}
+
+.dateR {
+    position: absolute;
+    top: 186px;
+    z-index: 2;
+    -webkit-box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 15px -2px rgba(0, 0, 0, 0.4);
+}
+
+.listResult {
+    flex: 3;
+    background-color: white;
+}
+
+.listAdd {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .75rem;
+}
+
+.listAdd>input {
+    width: 80px;
+    height: 40px;
+    text-align: center;
+    outline: none;
+    border: 2px solid hsl(207, 100%, 50%);
+    border-radius: 5px;
+    margin-block: .3rem;
+    transition: 0.2s ease-out;
+}
+
+.listAdd>input:hover {
+    border: 2px solid hsl(214, 100%, 32%);
+}
+
+.listOptions {
+    display: flex;
+    justify-content: center;
+    transform: translateY(-62px);
+}
