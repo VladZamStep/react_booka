@@ -42,7 +42,7 @@ const LoginPage = () => {
         } catch (err) {
             dispatch({
                 type: "LOGIN_FAILED",
-                payload: err.response.data,
+                payload: { message: "Wrong password or username!" },
             })
             // console.log(err.response.data.body)
         }

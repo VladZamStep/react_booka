@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from '../../components/navbar/Navbar'
 import Sidebar from '../../components/sidebar/Sidebar'
-import './newUser.scss'
+import './newPage.scss'
 import { ImFolderUpload } from 'react-icons/im'
 import axios from 'axios'
 import { userInputs } from '../../formSource'
@@ -57,7 +57,11 @@ const NewUser = () => {
                                     <label htmlFor='file'>
                                         Image: <ImFolderUpload className="icon" />
                                     </label>
-                                    <input type="file" id='file' onChange={e => setFile(e.target.files[0])} style={{ display: "none" }} />
+                                    <input
+                                        type="file"
+                                        id='file'
+                                        onChange={e => setFile(e.target.files[0])}
+                                        style={{ display: "none" }} />
                                 </div>
                             </form>
                         </div>

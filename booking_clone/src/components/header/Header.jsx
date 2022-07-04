@@ -12,6 +12,7 @@ import HeaderList from './header_components/HeaderList';
 import { useContext } from 'react';
 import { SearchContext } from '../../context/SearchContext';
 import { AuthContext } from '../../context/AuthContext';
+import HeaderOptions from './header_components/header_options/HeaderOptions';
 
 const Header = ({ type }) => {
 
@@ -98,7 +99,11 @@ const Header = ({ type }) => {
                                     placeholder='Where are you going?'
                                     className='headerSearchInput'
                                     onClick={closeDateOpt}
-                                    onChange={e => setDestination(e.target.value)}
+                                    onChange={e => {
+                                        const myRegex = /( |^)[a-z]/g;
+                                        const newValue = e.target.value.replace(myRegex, function (character) { return character.toUpperCase(); });
+                                        setDestination(newValue);
+                                    }}
                                 />
                             </div>
                             <div className="headerSearchItem">
@@ -127,62 +132,7 @@ const Header = ({ type }) => {
                                     onClick={changeStateOpt}>
                                     {`${options.adults} adult · ${options.children} children · ${options.rooms} room`}
                                 </span>
-                                {openOpt && <div className="options">
-                                    <div className="optionItem">
-                                        <span className="optionText">Adults</span>
-                                        <div className="optionCounter">
-                                            <button
-                                                disabled={options.adults <= 1}
-                                                className="optionBtn"
-                                                onClick={() => changeNum("adults", "decrease")}>
-                                                −
-                                            </button>
-                                            <span className="optionText">{options.adults}</span>
-                                            <button
-                                                disabled={options.adults >= 9}
-                                                className="optionBtn"
-                                                onClick={() => changeNum("adults", "increase")}>
-                                                +
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div className="optionItem">
-                                        <span className="optionText">Children</span>
-                                        <div className="optionCounter">
-                                            <button
-                                                disabled={options.children <= 0}
-                                                className="optionBtn"
-                                                onClick={() => changeNum("children", "decrease")}>
-                                                −
-                                            </button>
-                                            <span className="optionText">{options.children}</span>
-                                            <button
-                                                disabled={options.children >= 9}
-                                                className="optionBtn"
-                                                onClick={() => changeNum("children", "increase")}>
-                                                +
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div className="optionItem">
-                                        <span className="optionText">Room</span>
-                                        <div className="optionCounter">
-                                            <button
-                                                disabled={options.rooms <= 1}
-                                                className="optionBtn"
-                                                onClick={() => changeNum("rooms", "decrease")}>
-                                                −
-                                            </button>
-                                            <span className="optionText">{options.rooms}</span>
-                                            <button
-                                                disabled={options.rooms >= 5}
-                                                className="optionBtn"
-                                                onClick={() => changeNum("rooms", "increase")}>
-                                                +
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>}
+                                {openOpt && <HeaderOptions changeNum={changeNum} options={options} />}
                             </div>
                             <div className="headerSearchItem">
                                 <button

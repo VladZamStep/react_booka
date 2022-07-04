@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from '../../components/navbar/Navbar'
 import Sidebar from '../../components/sidebar/Sidebar'
-import './newUser.scss'
+import './newPage.scss'
 import { roomInputs } from '../../formSource'
 import useFetch from '../../components/hooks/useFetch'
 import axios from 'axios'

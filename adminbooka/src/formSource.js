@@ -41,13 +41,7 @@ export const hotelInputs = [
     id: "name",
     label: "Name",
     type: "text",
-    placeholder: "My Hotel",
-  },
-  {
-    id: "type",
-    label: "Type",
-    type: "text",
-    placeholder: "hotel",
+    placeholder: "The Westin Los Angeles Airport",
   },
   {
     id: "city",
@@ -59,13 +53,13 @@ export const hotelInputs = [
     id: "address",
     label: "Address",
     type: "text",
-    placeholder: "elton st, 216",
+    placeholder: "Elton st, 216",
   },
   {
     id: "distance",
     label: "Distance from City Center",
     type: "text",
-    placeholder: "500",
+    placeholder: "500 (m)",
   },
   {
     id: "title",
@@ -74,16 +68,22 @@ export const hotelInputs = [
     placeholder: "The best Hotel",
   },
   {
-    id: "description",
-    label: "Description",
+    id: "shortDescription",
+    label: "Short Description",
     type: "text",
-    placeholder: "description",
+    placeholder: "Executive King Room",
   },
   {
     id: "cheapestPrice",
     label: "Price",
     type: "text",
-    placeholder: "100",
+    placeholder: "100 ($)",
+  },
+  {
+    id: "textRating",
+    label: "Text Rating",
+    type: "text",
+    placeholder: "Wonderful",
   },
   {
     id: "rating",

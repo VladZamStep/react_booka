@@ -16,10 +16,10 @@ const PreferedList = () => {
                             <span className="prefName">{element.name}</span>
                             <span className="prefCity">{element.city}</span>
                             <span className="prefPrice">Starting from <span>US${element.cheapestPrice}</span></span>
-                            {element.rating && <div className="prefRating">
-                                <button>8.9</button>
-                                <span>Excelent</span>
-                            </div>}
+                            <div className="prefRating">
+                                <button>{element.rating}</button>
+                                <span>{element.textRating}</span>
+                            </div>
                         </div>
                     ))}
                 </>

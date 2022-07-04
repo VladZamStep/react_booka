@@ -10,6 +10,7 @@ import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import SearchResult from '../../components/searchResult/SearchResult'
 import useFetch from '../../hooks/useFetch'
+import HeaderOptions from '../../components/header/header_components/header_options/HeaderOptions'
 
 const ListPage = () => {
 
@@ -51,7 +52,14 @@ const ListPage = () => {
                         <h1 className='listTitle'>Search</h1>
                         <div className="listItem">
                             <label>Destination/property name:</label>
-                            <input type="text" placeholder={destination} />
+                            <input
+                                type="text"
+                                placeholder={destination}
+                                onChange={e => {
+                                    const myRegex = /( |^)[a-z]/g;
+                                    const newValue = e.target.value.replace(myRegex, function (character) { return character.toUpperCase(); });
+                                    setDestination(newValue);
+                                }} />
                         </div>
                         <div className="listItem">
                             <label>Check-in Date</label>
@@ -76,62 +84,7 @@ const ListPage = () => {
                         </div>
                         {openOpt &&
                             <div className="listOptions">
-                                <div className="options">
-                                    <div className="optionItem">
-                                        <span className="optionText">Adults</span>
-                                        <div className="optionCounter">
-                                            <button
-                                                disabled={options.adults <= 1}
-                                                className="optionBtn"
-                                                onClick={() => changeNum("adults", "decrease")}>
-                                                −
-                                            </button>
-                                            <span className="optionText">{options.adults}</span>
-                                            <button
-                                                disabled={options.adults >= 9}
-                                                className="optionBtn"
-                                                onClick={() => changeNum("adults", "increase")}>
-                                                +
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div className="optionItem">
-                                        <span className="optionText">Children</span>
-                                        <div className="optionCounter">
-                                            <button
-                                                disabled={options.children <= 0}
-                                                className="optionBtn"
-                                                onClick={() => changeNum("children", "decrease")}>
-                                                −
-                                            </button>
-                                            <span className="optionText">{options.children}</span>
-                                            <button
-                                                disabled={options.children >= 9}
-                                                className="optionBtn"
-                                                onClick={() => changeNum("children", "increase")}>
-                                                +
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div className="optionItem">
-                                        <span className="optionText">Room</span>
-                                        <div className="optionCounter">
-                                            <button
-                                                disabled={options.rooms <= 1}
-                                                className="optionBtn"
-                                                onClick={() => changeNum("rooms", "decrease")}>
-                                                −
-                                            </button>
-                                            <span className="optionText">{options.rooms}</span>
-                                            <button
-                                                disabled={options.rooms >= 5}
-                                                className="optionBtn"
-                                                onClick={() => changeNum("rooms", "increase")}>
-                                                +
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                                <HeaderOptions changeNum={changeNum} options={options} />
                             </div>}
                         <div className="listAdd">
                             <span className='listAddType'>

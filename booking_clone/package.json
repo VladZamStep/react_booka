@@ -1,7 +1,6 @@
 {
   "name": "booking_clone",
   "version": "0.1.0",
-  "homepage": "https://VladZamStep.github.io/react_booka",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
