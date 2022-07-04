@@ -1,7 +1,6 @@
 {
   "name": "adminbooka",
   "version": "0.1.0",
-  "homepage": "https://VladZamStep.github.io/react_booka",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.3",
