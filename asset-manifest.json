@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/react_booka/static/css/main.1b52692e.css",
-    "main.js": "/react_booka/static/js/main.366d1727.js",
-    "index.html": "/react_booka/index.html",
-    "main.1b52692e.css.map": "/react_booka/static/css/main.1b52692e.css.map",
-    "main.366d1727.js.map": "/react_booka/static/js/main.366d1727.js.map"
+    "main.css": "/static/css/main.5c651056.css",
+    "main.js": "/static/js/main.2fed365e.js",
+    "index.html": "/index.html",
+    "main.5c651056.css.map": "/static/css/main.5c651056.css.map",
+    "main.2fed365e.js.map": "/static/js/main.2fed365e.js.map"
   },
   "entrypoints": [
-    "static/css/main.1b52692e.css",
-    "static/js/main.366d1727.js"
+    "static/css/main.5c651056.css",
+    "static/js/main.2fed365e.js"
   ]
 }
