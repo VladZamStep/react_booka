@@ -36,7 +36,7 @@ const LoginPage = () => {
             dispatch({
                 type:
                     "LOGIN_FAILED",
-                payload: err.response.data
+                payload: { message: "Wrong password or username!" },
             })
         }
     }
@@ -58,8 +58,9 @@ const LoginPage = () => {
                     onChange={handleChange}
                 />
                 <button disabled={loading} className="submitBtn" onClick={handleClick}>Login</button>
-                {error && <span>{error.message}</span>}
+
             </div>
+            {error && <span>{error.message}</span>}
         </div>
     )
 }

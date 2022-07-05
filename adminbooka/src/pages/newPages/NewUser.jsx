@@ -22,7 +22,6 @@ const NewUser = () => {
         data.append("upload_preset", "uploadZam");
         try {
             const uploadRes = await axios.post("https://api.cloudinary.com/v1_1/zamnoise/image/upload", data)
-            console.log(uploadRes.data)
 
             const { url } = uploadRes.data;
             const newUser = {

@@ -1,4 +1,4 @@
-.loginPage {
+.registerPage {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -6,14 +6,14 @@
     align-items: center;
 }
 
-.loginPage>img {
+.registerPage>img {
     width: 100vw;
     height: 100vh;
     position: absolute;
     z-index: -50;
 }
 
-.loginPage::after {
+.registerPage::after {
     content: '';
     position: absolute;
     top: 0;
@@ -24,14 +24,7 @@
     background-color: var(--lightBlackTransparent);
 }
 
-.loginPage>span {
-    position: absolute;
-    transform: translateY(120px);
-    color: var(--white);
-}
-
-.loginContainer {
-
+.registerContainer {
     display: flex;
     flex-direction: column;
     gap: .25em;
@@ -41,7 +34,47 @@
     border-radius: var(--smallBR);
 }
 
-.loginContainer>input {
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form>img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    -webkit-box-shadow: var(--standartDarkShadow);
+    box-shadow: var(--standartDarkShadow);
+}
+
+.registerInput {
+    font-size: .85rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .25em;
+    padding-top: .5em;
+    color: var(--white);
+}
+
+.imageLabel {
+    font-size: .9rem;
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    cursor: pointer;
+    padding: .25em .5em;
+    transition: var(--transition);
+}
+
+.imageLabel:hover {
+    color: var(--lightBlue);
+}
+
+.registerInput>input {
     height: 40px;
     outline: none;
     padding-inline: 1em;
@@ -49,12 +82,13 @@
     border-radius: var(--smallBR);
 }
 
-.loginContainer>input:hover,
-.loginContainer>input:focus {
+.registerInput>input:hover,
+.registerInput>input:focus {
     border: 1px solid var(--middleBlue);
 }
 
 .submitBtn {
+    margin-top: .5em;
     height: 40px;
     font-size: .9rem;
     background-color: var(--lightBlue);

@@ -29,10 +29,31 @@
     transition: var(--transition);
 }
 
+.navItems {
+    display: flex;
+}
+
+.navUserItems {
+    display: flex;
+    align-items: center;
+    gap: .75em;
+    padding: .25em .75em;
+    border-radius: var(--smallBR);
+    -webkit-box-shadow: var(--thinShadow);
+    box-shadow: var(--thinShadow);
+}
+
 .userName {
-    font-size: .9rem;
+    font-size: .85rem;
     color: var(--white);
-    font-weight: 500;
+    font-weight: 400;
+}
+
+.userImg {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid var(--white);
 }
 
 .navBtn {

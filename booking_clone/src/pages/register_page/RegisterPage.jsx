@@ -1,67 +1,76 @@
 import axios from 'axios'
-import React from 'react'
 import { useState } from 'react'
-import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { AuthContext } from '../../context/AuthContext'
-import './loginPage.css'
+import { ImFolderUpload } from 'react-icons/im'
+import { userInputs } from '../../registerSource'
+import './registerPage.css'
 
-const LoginPage = () => {
+const RegisterPage = () => {
 
-    // const [credentials, setCredentials] = useState({
-    //     username: undefined,
-    //     password: undefined,
-    // })
+    const [file, setFile] = useState("");
+    const [info, setInfo] = useState({});
+    const navigate = useNavigate();
 
-    // const { loading, error, dispatch } = useContext(AuthContext);
+    const handleChange = (e) => {
+        setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }))
+    }
 
-    // const navigate = useNavigate();
+    const handleClick = async (e) => {
+        e.preventDefault();
+        const data = new FormData();
+        data.append("file", file);
+        data.append("upload_preset", "uploadZam");
+        try {
+            const uploadRes = await axios.post("https://api.cloudinary.com/v1_1/zamnoise/image/upload", data)
 
-    // const handleChange = (e) => {
-    //     setCredentials(prev => ({ ...prev, [e.target.id]: e.target.value }));
-    // };
-
-    // const handleClick = async (e) => {
-    //     e.preventDefault();
-    //     dispatch({ type: "LOGIN_START" });
-    //     try {
-    //         const res = await axios.post("http://localhost:8800/api/auth/login", credentials);
-    //         dispatch({
-    //             type:
-    //                 "LOGIN_SUCCESS",
-    //             payload: res.data.details
-    //         });
-    //         navigate("/")
-    //     } catch (err) {
-    //         dispatch({
-    //             type:
-    //                 "LOGIN_FAILED",
-    //             payload: err.response.data
-    //         })
-    //     }
-    // }
-
+            const { url } = uploadRes.data;
+            const newUser = {
+                ...info,
+                img: url,
+            };
+            await axios.post("http://localhost:8800/api/auth/register", newUser);
+            navigate("/login")
+        } catch (err) {
+            console.log(err)
+        }
+    }
+    console.log(info)
     return (
         <div className='registerPage'>
             <img src="https://www.tripsavvy.com/thmb/9UCe7bHm9MK9s_UO1nr_FcN-bKE=/5095x3383/filters:fill(auto,1)/usa--oregon--bend--illuminated-tent-by-lake-in-mountains-sb10070057l-001-5c3f91f746e0fb00012b9a84.jpg" alt="" />
             <div className="registerContainer">
-                <input
-                    type="text"
-                    id='username'
-                    placeholder='Username'
-                    onChange={handleChange}
-                />
-                <input
-                    type="password"
-                    id='password'
-                    placeholder='Password'
-                    onChange={handleChange}
-                />
-                <button disabled={loading} className="submitBtn" onClick={handleClick}>Login</button>
-                {error && <span>{error.message}</span>}
+                <form>
+                    <img
+                        src={file
+                            ? URL.createObjectURL(file)
+                            : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"}
+                        alt=""
+                    />
+                    <div className="registerInput">
+                        <label className="imageLabel" htmlFor='file'>
+                            Image: <ImFolderUpload className="icon" />
+                        </label>
+                        <input
+                            type="file"
+                            id='file'
+                            onChange={e => setFile(e.target.files[0])}
+                            style={{ display: "none" }} />
+                    </div>
+                    {userInputs.map((input) => (
+                        <div className="registerInput" key={input.id}>
+                            <label>{input.label}</label>
+                            <input
+                                onChange={handleChange}
+                                type={input.type}
+                                placeholder={input.placeholder}
+                                id={input.id}
+                            />
+                        </div>
+                    ))}
+                </form>
+                <button className="submitBtn" onClick={handleClick}>Register</button>
             </div>
         </div>
     )
 }
-
-export default LoginPage
+export default RegisterPage
