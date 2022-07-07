@@ -1,15 +1,18 @@
-import React, { useContext } from 'react'
-import './navbar.scss'
-import { BsSearch, BsListNested } from 'react-icons/bs'
+import { useContext } from 'react'
+import { BsListNested } from 'react-icons/bs'
 import { TbWorld } from 'react-icons/tb'
 import { MdNightlight, MdWbSunny } from 'react-icons/md'
-import { BiExitFullscreen, BiMessage } from 'react-icons/bi'
-import { IoMdNotificationsOutline } from 'react-icons/io'
 import { DarkModeContext } from '../context/darkModeContext'
+import { AuthContext } from '../context/AuthContext'
+import './navbar.scss'
 
 const Navbar = () => {
 
+    const defaultNoPhoto = "https://i.pinimg.com/280x280_RS/2e/45/66/2e4566fd829bcf9eb11ccdb5f252b02f.jpg";
+    const { user } = useContext(AuthContext);
     const { darkMode, dispatch } = useContext(DarkModeContext);
+
+    console.log(user)
 
     return (
         <div className='navbar'>
@@ -27,7 +30,7 @@ const Navbar = () => {
                     <BsListNested className='icon' />
                 </div>
                 <div className="item">
-                    <img src="http://almode.ru/uploads/posts/2021-12/1639127930_28-almode-ru-p-devushka-v-plate-31.jpg"
+                    <img src={user.img ? user.img : defaultNoPhoto}
                         alt="profilePhoto"
                         className='profilePhoto'
                     />

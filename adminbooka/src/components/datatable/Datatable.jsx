@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import './datatable.scss'
+import { useState } from 'react'
 import { DataGrid } from '@mui/x-data-grid'
 import { Link, useLocation } from 'react-router-dom'
 import useFetch from '../hooks/useFetch'
 import { useEffect } from 'react'
 import axios from 'axios'
 import { Box } from '@mui/material'
+import './datatable.scss'
 
 const Datatable = ({ columns }) => {
 
@@ -13,7 +13,7 @@ const Datatable = ({ columns }) => {
     const path = location.pathname.split("/")[1];
     const [filteredData, setFilteredData] = useState([]);
 
-    const { data, loading, error } = useFetch(`http://localhost:8800/api/${path}`)
+    const { data } = useFetch(`http://localhost:8800/api/${path}`)
     console.log(data)
     useEffect(() => {
         setFilteredData(data)
@@ -35,7 +35,7 @@ const Datatable = ({ columns }) => {
         renderCell: (params) => {
             return (
                 <div className='cellAction'>
-                    <Link to="/users/test">
+                    <Link to={`/${path}/${params.row._id}`}>
                         <div className="viewBtn">View</div>
                     </Link>
                     <div className="deleteBtn"

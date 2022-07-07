@@ -1,26 +1,28 @@
+@import "src/scss/abstracts/_variables";
+
 .datatable {
     height: calc(100vh - 50px);
     padding: 1.1em;
-    border-left: 1px solid var(--superLightGray);
+    border-left: 1px solid $superLightGray;
 
     .dataGrid {
-        border-color: var(--lightGray);
+        border-color: $lightGray;
     }
 
     .css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root {
-        color: var(--lightBlue);
+        color: $lightBlue;
     }
 
     .css-f3jnds-MuiDataGrid-columnHeaders,
     .css-r11z79-MuiDataGrid-root .MuiDataGrid-cell,
     .css-17jjc08-MuiDataGrid-footerContainer {
-        border-color: var(--lightGray);
+        border-color: $lightGray;
     }
 
     .datatableTitle {
         width: 100%;
         font-size: 1.3em;
-        color: var(--middleGray);
+        color: $middleGray;
         margin-bottom: .8em;
         display: flex;
         align-items: center;
@@ -28,12 +30,12 @@
         text-transform: capitalize;
 
         .link {
-            color: var(--lightBlue);
+            color: $lightBlue;
             font-size: 1rem;
             font-weight: 400;
-            border: 1px solid var(--lightBlue);
+            border: 1px solid $lightBlue;
             padding: .25em .5em;
-            border-radius: var(--smallBR);
+            border-radius: $smallBR;
             cursor: pointer;
         }
     }
@@ -58,17 +60,17 @@
 
         .viewBtn {
             padding: .15em .25em;
-            border-radius: var(--smallBR);
-            color: var(--hardBlue);
-            border: 1px dotted var(--hardBlue);
+            border-radius: $smallBR;
+            color: $hardBlue;
+            border: 1px dotted $hardBlue;
             cursor: pointer;
         }
 
         .deleteBtn {
-            padding: 2px 5px;
-            border-radius: 5px;
-            color: var(--red);
-            border: 1px dotted var(--red);
+            padding: .15em .25em;
+            border-radius: $smallBR;
+            color: $red;
+            border: 1px dotted $red;
             cursor: pointer;
         }
     }

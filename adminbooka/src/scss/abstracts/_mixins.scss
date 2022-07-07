@@ -1,0 +1,95 @@
+@mixin flexCenterObject {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin standartShadowMixin {
+    -webkit-box-shadow: $webKitShadow;
+    box-shadow: $standartShadow;
+}
+
+@mixin darkShadowMixin {
+    -webkit-box-shadow: $webKitShadow;
+    box-shadow: $standartDarkShadow;
+}
+
+@mixin inputs {
+    width: 100%;
+    padding: .4em .4em .2em .4em;
+    border: none;
+    border-bottom: 1px solid $lightGray;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+@mixin selects {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $lightGray;
+    padding: .4em 0 .2em .4em;
+}
+
+@mixin blueBtn {
+    font-size: 1rem;
+    width: 100%;
+    padding: .8em;
+    border: none;
+    border-radius: $smallBR;
+    background-color: $lightBlue;
+    color: $white;
+    font-weight: 400;
+    letter-spacing: .1em;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+        background-color: $middleBlue;
+    }
+}
+
+@mixin infoTitle {
+    font-size: 1.25rem;
+    color: $superLightGray;
+    margin-bottom: .5em;
+}
+
+@mixin infoDetails {
+    .itemTitle {
+        font-size: 1.75rem;
+        margin-bottom: .5em;
+        color: $middleGray;
+    }
+
+    .delailItem {
+        font-size: .8em;
+        margin-bottom: .5em;
+
+        .itemKey {
+            font-weight: bold;
+            margin-right: .5em;
+        }
+
+        .itemValue {
+            font-weight: 300;
+        }
+
+        .roomNumberSpacing {
+            padding-right: 5px;
+        }
+    }
+}
+
+@mixin editBtn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: .65em;
+    font-size: .7em;
+    color: $superLightGray;
+    background-color: $superLightBlue;
+    cursor: no-drop;
+    border-radius: 0 0 0 $smallBR;
+}

@@ -1,10 +1,12 @@
+@import "src/scss/abstracts/_variables";
+
 .navbar {
     height: 50px;
-    border-bottom: 1px solid var(--superLightGray);
+    border-bottom: 1px solid $superLightGray;
     display: flex;
     align-items: center;
     font-size: .8rem;
-    color: var(--middleGray);
+    color: $middleGray;
 
     .navbarContainer {
         width: 100%;
@@ -17,7 +19,6 @@
             display: flex;
             align-items: center;
             margin-right: 1.4em;
-            cursor: pointer;
 
             span {
                 display: flex;
@@ -35,10 +36,15 @@
                 cursor: default;
             }
 
+            &:nth-child(2) {
+                cursor: pointer;
+            }
+
             .profilePhoto {
-                width: 30px;
-                height: 30px;
+                width: 32px;
+                height: 32px;
                 border-radius: 50%;
+                border: 1px solid $white;
             }
         }
     }

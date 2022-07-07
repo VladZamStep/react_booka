@@ -1,0 +1,69 @@
+@import "src/scss/abstracts/_variables";
+@import "src/scss/abstracts/_mixins";
+
+.singleUserPage {
+    display: flex;
+    width: 100%;
+
+    .singleUserPageContainer {
+        flex: 6;
+
+        .singleUserPageWrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: calc(100vh - 50px);
+            border-left: 1px solid $superLightGray;
+            padding: 1.1em;
+            gap: 1.1em;
+
+            .singleUserItems {
+                @include standartShadowMixin;
+                padding: 1.1em;
+                position: relative;
+                border-radius: $smallBR;
+
+                .editBtn {
+                    @include editBtn;
+                }
+
+                .item {
+                    display: flex;
+                    gap: 1.5em;
+
+                    .photosInfo {
+                        @include flexCenterObject;
+                        flex-wrap: wrap;
+                        gap: .5em;
+                        margin-top: .5em;
+
+                        .itemImg {
+                            width: 200px;
+                            height: 200px;
+                            border-radius: $smallBR;
+                            object-fit: cover;
+                        }
+                    }
+
+                    .details {
+                        @include infoDetails;
+                    }
+                }
+            }
+        }
+
+
+        .bottom {
+            @include standartShadowMixin;
+            padding: 1.1em;
+            margin: .65em 1.1em;
+        }
+
+        .title {
+            @include infoTitle;
+        }
+
+        .sendBtn {
+            @include blueBtn;
+        }
+    }
+}

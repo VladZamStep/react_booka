@@ -1,5 +1,4 @@
 import axios from 'axios'
-import React from 'react'
 import { useState } from 'react'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -44,7 +43,6 @@ const LoginPage = () => {
                 type: "LOGIN_FAILED",
                 payload: { message: "Wrong password or username!" },
             })
-            // console.log(err.response.data.body)
         }
     }
 

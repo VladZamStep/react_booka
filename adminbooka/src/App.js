@@ -2,16 +2,19 @@ import { useContext } from 'react';
 import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom';
 import { AuthContext } from './components/context/AuthContext';
 import { DarkModeContext } from './components/context/darkModeContext';
+import MainProfile from './components/mainProfile/MainProfile';
 import { hotelColumns, roomColumns, userColumns } from './datatablesource';
-import { hotelInputs, userInputs } from './formSource';
+import { userInputs } from './formSource';
 import HomePage from './pages/homePage/HomePage';
 import ListPage from './pages/listPage/ListPage';
 import LoginPage from './pages/loginPage/LoginPage';
-import NewHotel from './pages/newPages/NewHotel';
-import NewRoom from './pages/newPages/NewRoom';
-import NewUser from './pages/newPages/NewUser';
-import SinglePage from './pages/singlePage/SinglePage';
-import './style/dark.scss'
+import NewHotel from './pages/newPages/newHotelPage/NewHotel';
+import NewRoom from './pages/newPages/newRoomPage/NewRoom';
+import NewUser from './pages/newPages/newUserPage/NewUser';
+import SingleHotelPage from './pages/singleHotelPage/SingleHotelPage';
+import SingleRoomPage from './pages/singleRoomPage/SingleRoomPage';
+import SingleUserPage from './pages/singleUserPage/SingleUserPage';
+import './scss/darkStyle/dark.scss'
 
 const App = () => {
 
@@ -35,6 +38,13 @@ const App = () => {
               <ProtectedRoute>
                 <HomePage />
               </ProtectedRoute>} />
+            <Route path='profile'>
+              <Route index element={
+                <ProtectedRoute>
+                  <MainProfile />
+                </ProtectedRoute>
+              } />
+            </Route>
             <Route path='users'>
               <Route index element={
                 <ProtectedRoute>
@@ -43,7 +53,7 @@ const App = () => {
               } />
               <Route path=':userId' element={
                 <ProtectedRoute>
-                  <SinglePage />
+                  <SingleUserPage />
                 </ProtectedRoute>
               } />
               <Route path='new' element={
@@ -60,7 +70,7 @@ const App = () => {
               } />
               <Route path=':hotelId' element={
                 <ProtectedRoute>
-                  <SinglePage />
+                  <SingleHotelPage />
                 </ProtectedRoute>
               } />
               <Route path='new' element={
@@ -77,7 +87,7 @@ const App = () => {
               } />
               <Route path=':roomId' element={
                 <ProtectedRoute>
-                  <SinglePage />
+                  <SingleRoomPage />
                 </ProtectedRoute>
               } />
               <Route path='new' element={

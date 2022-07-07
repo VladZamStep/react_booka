@@ -1,8 +1,9 @@
+@import "src/scss/abstracts/_variables";
+@import "src/scss/abstracts/_mixins";
+
 .loginPage {
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flexCenterObject;
 }
 
 .loginContainer {
@@ -15,30 +16,29 @@
     height: 40px;
     outline: none;
     padding-inline: 1em;
-    border: 1px solid var(--lightBlue);
-    border-radius: var(--smallBR);
+    border: 1px solid $lightBlue;
+    border-radius: $smallBR;
 }
 
 .loginContainer>input:hover,
 .loginContainer>input:focus {
-    border: 1px solid var(--middleBlue);
+    border: 1px solid $middleBlue;
 }
 
 .submitBtn {
     height: 40px;
     font-size: .9rem;
-    background-color: var(--lightBlue);
-    color: var(--white);
+    background-color: $lightBlue;
+    color: $white;
     border: none;
-    border-radius: var(--smallBR);
+    border-radius: $smallBR;
     font-weight: 500;
     padding-inline: 1.1em;
     cursor: pointer;
-    transition: var(--transition);
+    transition: $transition;
 }
 
 .submitBtn:hover {
-    background-color: var(--middleBlue);
-    -webkit-box-shadow: var(--thinShadow);
-    box-shadow: var(--thinShadow);
+    background-color: $middleBlue;
+    @include standartShadowMixin;
 }

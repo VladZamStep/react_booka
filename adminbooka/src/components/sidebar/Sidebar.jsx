@@ -1,20 +1,22 @@
-import React, { useContext } from 'react'
-import './sidebar.scss'
+import { useContext } from 'react'
 import { MdOutlineLocalHotel, MdOutlineMeetingRoom, MdComputer, MdLogout } from 'react-icons/md'
-import { FaRegUser, FaCreditCard } from 'react-icons/fa'
-import { TbTruckDelivery } from 'react-icons/tb'
-import { IoStatsChartSharp } from 'react-icons/io5'
-import { IoMdNotificationsOutline } from 'react-icons/io'
-import { GiBrain, GiFamilyHouse } from 'react-icons/gi'
-import { RiHotelLine } from 'react-icons/ri'
+import { FaRegUser } from 'react-icons/fa'
+import { GiBrain } from 'react-icons/gi'
 import { FiSettings } from 'react-icons/fi'
 import { CgProfile } from 'react-icons/cg'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { DarkModeContext } from '../context/darkModeContext'
+import './sidebar.scss'
 
 const Sidebar = () => {
 
     const { dispatch } = useContext(DarkModeContext);
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        localStorage.removeItem("user");
+        navigate('/login');
+    }
 
     return (
         <div className='sidebar'>
@@ -45,11 +47,13 @@ const Sidebar = () => {
                         </li>
                     </Link>
                     <p className="title">USER</p>
-                    <li>
-                        <CgProfile className='icon' />
-                        <span>Profile</span>
-                    </li>
-                    <li>
+                    <Link to='/profile'>
+                        <li>
+                            <CgProfile className='icon' />
+                            <span>Profile</span>
+                        </li>
+                    </Link>
+                    <li onClick={handleLogout}>
                         <MdLogout className='icon' />
                         <span>Logout</span>
                     </li>

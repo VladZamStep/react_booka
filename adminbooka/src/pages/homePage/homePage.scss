@@ -1,3 +1,6 @@
+@import "src/scss/abstracts/_variables";
+@import "src/scss/abstracts/_mixins";
+
 .homePage {
     display: flex;
 
@@ -5,14 +8,12 @@
         flex: 6;
 
         .welcome {
-            border-left: 1px solid var(--superLightGray);
+            border-left: 1px solid $superLightGray;
             height: calc(100% - 50px);
             margin: 0 auto;
-            display: flex;
+            @include flexCenterObject;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(150deg, var(--white), var(--white), var(--lightGray));
+            background: linear-gradient(150deg, $white, $white, $lightGray);
 
             .welcomeTitle {
                 margin-bottom: .5em;

@@ -1,20 +1,22 @@
+@import "src/scss/abstracts/_variables";
+
 .sidebar {
     flex: 1;
     min-height: 100vh;
     max-width: 200px;
-    background-color: var(--white);
+    background-color: $white;
 
     .top {
         height: 50px;
         display: flex;
         justify-content: center;
         align-items: center;
-        border-bottom: 1px solid var(--superLightGray);
+        border-bottom: 1px solid $superLightGray;
 
         .logo {
             font-size: 1.2rem;
             font-weight: bold;
-            color: var(--lightBlue);
+            color: $lightBlue;
         }
     }
 
@@ -28,7 +30,7 @@
                 font-weight: bold;
                 padding-top: 1.75em;
                 margin-bottom: .85em;
-                color: var(--lightGray);
+                color: $lightGray;
                 padding-left: 1em;
             }
 
@@ -39,22 +41,22 @@
                 cursor: pointer;
 
                 &:hover {
-                    background-color: var(--superLightBlue);
+                    background-color: $superLightBlue;
                 }
 
                 .icon {
                     font-size: 1rem;
-                    color: var(--lightBlue);
+                    color: $lightBlue;
                 }
 
                 .unavailable {
-                    color: var(--superLightGray);
+                    color: $superLightGray;
                 }
 
                 span {
                     font-size: .7rem;
                     font-weight: 600;
-                    color: var(--middleGray);
+                    color: $middleGray;
                     margin-left: .8em;
                 }
             }
@@ -66,14 +68,14 @@
     }
 
     .bottom {
-        border-top: 1px solid var(--superLightGray);
+        border-top: 1px solid $superLightGray;
         font-size: .6rem;
 
         .title {
             font-weight: bold;
             margin-top: 1.75em;
             margin-bottom: .85em;
-            color: var(--lightGray);
+            color: $lightGray;
             padding-left: 1em;
         }
 
@@ -85,17 +87,17 @@
             .colorOption {
                 width: 25px;
                 height: 25px;
-                border-radius: var(--smallBR);
-                border: 1px solid var(--middleBlue);
+                border-radius: $smallBR;
+                border: 1px solid $middleBlue;
                 cursor: pointer;
                 margin-right: 5px;
 
                 &:first-child {
-                    background-color: var(--white);
+                    background-color: $white;
                 }
 
                 &:last-child {
-                    background-color: var(--hardGray);
+                    background-color: $hardGray;
                 }
             }
         }

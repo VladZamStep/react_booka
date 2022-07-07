@@ -5,6 +5,7 @@ import { AuthContext } from '../../context/AuthContext';
 
 const NavBar = () => {
 
+    const defaultNoPhoto = "https://i.pinimg.com/280x280_RS/2e/45/66/2e4566fd829bcf9eb11ccdb5f252b02f.jpg";
     const [show, setShow] = useState(true);
     const { user } = useContext(AuthContext);
 
@@ -25,7 +26,7 @@ const NavBar = () => {
                         <div className="navItems">
                             <div className="navUserItems">
                                 <img className='userImg'
-                                    src={user.img || "https://i.pinimg.com/280x280_RS/2e/45/66/2e4566fd829bcf9eb11ccdb5f252b02f.jpg"}
+                                    src={user.img || defaultNoPhoto}
                                 />
                                 <span className='userName'>{user.username}</span>
                             </div>
