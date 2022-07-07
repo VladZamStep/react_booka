@@ -49,6 +49,7 @@ const LoginPage = () => {
     return (
         <div className='loginPage'>
             <div className="loginContainer">
+                <h1 className="bookaTitle">Booka_Admin</h1>
                 <input
                     type="text"
                     id='username'

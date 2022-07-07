@@ -62,12 +62,14 @@ const ChooseRoom = ({ setOpen, hotelId }) => {
             console.log(err);
         }
     };
+
+    console.log(data)
     return (
         <div className="chooseRoom">
             <div className="chooseRoomContainer">
                 <MdClose className='closeCR' onClick={() => setOpen(false)} />
                 <span className="selectRooms">Select your rooms:</span>
-                {data.map((item) => (
+                {data.filter(item => item !== null).map((item) => (
                     <div className="cRItem" key={item._id}>
                         <div className="cRItemInfo">
                             <div className="cRTitle">{item.title}</div>

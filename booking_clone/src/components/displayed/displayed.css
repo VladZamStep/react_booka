@@ -1,12 +1,11 @@
 .displayContainer {
-    width: 100vw;
+    width: 100%;
     -webkit-box-shadow: var(--bottomShadow);
     box-shadow: var(--bottomShadow);
     padding-bottom: 1.5em;
 }
 
 .displayed {
-    width: 100%;
     max-width: 1024px;
     margin: 0 auto;
     display: grid;
