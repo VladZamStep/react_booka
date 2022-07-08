@@ -5,6 +5,7 @@
     background-color: $superHardGray;
     color: $lightGray;
 
+
     .welcome {
         background: linear-gradient(150deg, $superHardGray, $superHardGray, $hardGray);
         border-color: $hardGray;
@@ -16,7 +17,9 @@
     }
 
     .sidebar {
+        color: red;
         background-color: $superHardGray;
+        border-color: $hardGray;
 
         .top,
         .bottom {
@@ -25,12 +28,16 @@
 
         .center {
             .unavailable {
-                color: $hardGray;
+                color: $middleHardGray;
             }
         }
 
         ul {
             li {
+                span {
+                    color: $lightGray;
+                }
+
                 &:hover {
                     background-color: $hardGray;
                 }
@@ -73,7 +80,9 @@
         }
     }
 
-    .newPageWrapper {
+    .newHotelPageWrapper,
+    .newUserPageWrapper,
+    .newRoomPageWrapper {
         border-color: $hardGray;
 
         .top,
@@ -112,7 +121,6 @@
             }
 
             .item {
-
                 .details {
                     .itemTitle {
                         color: $hardGray;
@@ -120,10 +128,6 @@
                 }
             }
         }
-    }
-
-    .title {
-        color: $lightGray;
     }
 
     .sendBtn {
@@ -145,6 +149,14 @@
                 background-color: $hardGray;
                 color: $middleGray;
             }
+
+            .item {
+                .details {
+                    .itemTitle {
+                        color: $lightGray;
+                    }
+                }
+            }
         }
     }
 
@@ -157,6 +169,14 @@
                 background-color: $hardGray;
                 color: $middleGray;
             }
+
+            .item {
+                .details {
+                    .itemTitle {
+                        color: $lightGray;
+                    }
+                }
+            }
         }
     }
 
@@ -164,10 +184,29 @@
         border-color: $hardGray;
 
         .singleUserItems {
-
             .editBtn {
                 background-color: $hardGray;
                 color: $middleGray;
+            }
+
+            .item {
+                .details {
+                    .itemTitle {
+                        color: $lightGray;
+                    }
+                }
+            }
+        }
+    }
+
+    .mainWrapper {
+        .mainItems {
+            .item {
+                .details {
+                    .itemTitle {
+                        color: $lightGray;
+                    }
+                }
             }
         }
     }

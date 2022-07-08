@@ -52,7 +52,7 @@
 
 @mixin infoTitle {
     font-size: 1.25rem;
-    color: $superLightGray;
+    color: $lightGray;
     margin-bottom: .5em;
 }
 
@@ -92,4 +92,36 @@
     background-color: $superLightBlue;
     cursor: no-drop;
     border-radius: 0 0 0 $smallBR;
+}
+
+//Media querys
+
+@mixin for-phone-only {
+    @media (max-width: 599px) {
+        @content;
+    }
+}
+
+@mixin for-tablet-landscape-up {
+    @media (max-width: 900px) {
+        @content;
+    }
+}
+
+@mixin for-desktop-up {
+    @media (max-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin for-big-desktop-up {
+    @media (max-width: 1800px) {
+        @content;
+    }
+}
+
+@mixin for-huge-desktop-up {
+    @media (min-width: 2250px) {
+        @content;
+    }
 }

@@ -32,11 +32,11 @@ const NewRoom = () => {
     }
     console.log(data)
     return (
-        <div className='newPage'>
-            <Sidebar />
-            <div className="newPageContainer">
-                <Navbar />
-                <div className="newPageWrapper">
+        <div className='newRoomPage'>
+            <Navbar />
+            <div className="newRoomPageContainer">
+                <Sidebar />
+                <div className="newRoomPageWrapper">
                     <div className="top">
                         <h1 className="addNew">Add new room</h1>
                     </div>

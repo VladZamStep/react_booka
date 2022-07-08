@@ -10,9 +10,9 @@ const WELCOME_INFO_3 = "Let’s get started!";
 const HomePage = () => {
     return (
         <div className='homePage'>
-            <Sidebar />
+            <Navbar />
             <div className="homeContainer">
-                <Navbar />
+                <Sidebar />
                 <div className="welcome">
                     <h1 className="welcomeTitle">{TITLE}</h1>
                     <p className="welcomeInfo">{WELCOME_INFO_1}</p>

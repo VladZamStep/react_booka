@@ -20,13 +20,13 @@ const SingleHotelPage = () => {
     console.log(data)
     return (
         <div className='singleHotelPage'>
-            <Sidebar />
+            <Navbar />
             <div className="singleHotelPageContainer">
-                <Navbar />
+                <Sidebar />
                 <div className="singleHotelPageWrapper">
                     <div className="singleHotelItems">
                         <div className="editBtn">Edit</div>
-                        <h1 className="title">Information</h1>
+                        <h1 className="infoTitle">Information</h1>
                         <div className="item">
                             <div className="photosInfo">
                                 {data.photos?.map((photo, index) => (

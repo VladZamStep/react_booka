@@ -1,9 +1,9 @@
 @import "src/scss/abstracts/_variables";
+@import "src/scss/abstracts/_mixins";
 
 .datatable {
     height: calc(100vh - 50px);
     padding: 1.1em;
-    border-left: 1px solid $superLightGray;
 
     .dataGrid {
         border-color: $lightGray;
@@ -19,15 +19,25 @@
         border-color: $lightGray;
     }
 
+    .css-r11z79-MuiDataGrid-root {
+        @include for-phone-only {
+            font-size: .8rem;
+        }
+    }
+
     .datatableTitle {
         width: 100%;
-        font-size: 1.3em;
+        font-size: 1.3rem;
         color: $middleGray;
         margin-bottom: .8em;
         display: flex;
         align-items: center;
         justify-content: space-between;
         text-transform: capitalize;
+
+        @include for-phone-only {
+            font-size: 1rem;
+        }
 
         .link {
             color: $lightBlue;
@@ -37,6 +47,10 @@
             padding: .25em .5em;
             border-radius: $smallBR;
             cursor: pointer;
+
+            @include for-phone-only {
+                font-size: .8rem;
+            }
         }
     }
 

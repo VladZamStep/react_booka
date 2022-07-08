@@ -53,11 +53,11 @@ const NewHotel = () => {
     }
 
     return (
-        <div className='newPage'>
-            <Sidebar />
-            <div className="newPageContainer">
-                <Navbar />
-                <div className="newPageWrapper">
+        <div className='newHotelPage'>
+            <Navbar />
+            <div className="newHotelPageContainer">
+                <Sidebar />
+                <div className="newHotelPageWrapper">
                     <div className="top">
                         <h1 className="addNew">Add new hotel</h1>
                     </div>

@@ -1,30 +1,41 @@
 @import "src/scss/abstracts/_variables";
+@import "src/scss/abstracts/_mixins";
 
 .sidebar {
+    top: 50px;
     flex: 1;
-    min-height: 100vh;
-    max-width: 200px;
+    height: calc(100vh - 50px);
+    min-width: 160px;
+    max-width: 220px;
     background-color: $white;
 
-    .top {
-        height: 50px;
+    @include for-tablet-landscape-up {
+        max-width: 100%;
         display: flex;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
+        min-height: 45px;
+        height: fit-content;
+        border: none;
         border-bottom: 1px solid $superLightGray;
-
-        .logo {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: $lightBlue;
-        }
     }
 
     .center {
 
+        @include for-tablet-landscape-up {
+            display: flex;
+            align-items: center;
+        }
+
         ul {
             list-style: none;
             font-size: .6rem;
+
+            @include for-tablet-landscape-up {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
 
             .title {
                 font-weight: bold;
@@ -32,6 +43,10 @@
                 margin-bottom: .85em;
                 color: $lightGray;
                 padding-left: 1em;
+
+                @include for-tablet-landscape-up {
+                    display: none;
+                }
             }
 
             li {
@@ -39,6 +54,11 @@
                 align-items: center;
                 padding: .6em .6em .6em 1em;
                 cursor: pointer;
+
+                @include for-tablet-landscape-up {
+                    display: flex;
+                    padding: 1em;
+                }
 
                 &:hover {
                     background-color: $superLightBlue;
@@ -70,6 +90,10 @@
     .bottom {
         border-top: 1px solid $superLightGray;
         font-size: .6rem;
+
+        @include for-tablet-landscape-up {
+            display: none;
+        }
 
         .title {
             font-weight: bold;

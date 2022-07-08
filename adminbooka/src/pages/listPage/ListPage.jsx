@@ -6,10 +6,12 @@ import './listPage.scss'
 const ListPage = ({ columns }) => {
     return (
         <div className='listPage'>
-            <Sidebar />
+            <Navbar />
             <div className="listPageContainer">
-                <Navbar />
-                <Datatable columns={columns} />
+                <Sidebar />
+                <div className="dataWrapper">
+                    <Datatable columns={columns} />
+                </div>
             </div>
         </div>
     )

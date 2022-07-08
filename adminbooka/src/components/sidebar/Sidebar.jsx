@@ -20,11 +20,6 @@ const Sidebar = () => {
 
     return (
         <div className='sidebar'>
-            <div className="top">
-                <Link to='/'>
-                    <span className="logo">Booka_Admin</span>
-                </Link>
-            </div>
             <div className="center">
                 <ul>
                     <p className="title">MAIN</p>

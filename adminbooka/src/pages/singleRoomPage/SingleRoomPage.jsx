@@ -18,13 +18,13 @@ const SingleRoomPage = () => {
 
     return (
         <div className='singleRoomPage'>
-            <Sidebar />
+            <Navbar />
             <div className="singleRoomPageContainer">
-                <Navbar />
+                <Sidebar />
                 <div className="singleRoomPageWrapper">
                     <div className="singleRoomItems">
                         <div className="editBtn">Edit</div>
-                        <h1 className="title">Information</h1>
+                        <h1 className="infoTitle">Information</h1>
                         <div className="details">
                             <h1 className="itemTitle">{data.title}</h1>
                             <div className="delailItem">

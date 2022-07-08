@@ -21,13 +21,13 @@ const SingleUserPage = () => {
 
     return (
         <div className='singleUserPage'>
-            <Sidebar />
+            <Navbar />
             <div className="singleUserPageContainer">
-                <Navbar />
+                <Sidebar />
                 <div className="singleUserPageWrapper">
                     <div className="singleUserItems">
                         <div className="editBtn">Edit</div>
-                        <h1 className="title">Information</h1>
+                        <h1 className="infoTitle">Information</h1>
                         <div className="item">
                             <div className="photosInfo">
                                 <img src={data.img || defaultNoPhoto}

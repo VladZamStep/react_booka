@@ -1,4 +1,5 @@
 @import "src/scss/abstracts/_variables";
+@import "src/scss/abstracts/_mixins";
 
 .navbar {
     height: 50px;
@@ -8,9 +9,27 @@
     font-size: .8rem;
     color: $middleGray;
 
+    .mainLogo {
+        padding-left: 1.5em;
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: $lightBlue;
+
+            @include for-desktop-up {
+                font-size: 1rem;
+            }
+
+        }
+
+        @include for-phone-only {
+            padding-left: 1em;
+        }
+    }
+
     .navbarContainer {
         width: 100%;
-        padding: 1.4em;
         display: flex;
         align-items: center;
         justify-content: flex-end;
@@ -18,7 +37,11 @@
         .item {
             display: flex;
             align-items: center;
-            margin-right: 1.4em;
+            padding-right: 1.5em;
+
+            @include for-phone-only {
+                padding-right: 1em;
+            }
 
             span {
                 display: flex;

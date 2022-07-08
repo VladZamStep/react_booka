@@ -19,13 +19,13 @@ const MainProfile = () => {
     console.log(user)
     return (
         <div className='mainPage'>
-            <Sidebar />
+            <Navbar />
             <div className="mainContainer">
-                <Navbar />
+                <Sidebar />
                 <div className="mainWrapper">
                     <div className="mainItems">
                         <div className="editBtn">Edit</div>
-                        <h1 className="title">Information</h1>
+                        <h1 className="infoTitle">Information</h1>
                         <div className="item">
                             <div className="photosInfo">
                                 <img src={user.img || defaultNoPhoto}

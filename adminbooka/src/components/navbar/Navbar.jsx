@@ -4,6 +4,7 @@ import { TbWorld } from 'react-icons/tb'
 import { MdNightlight, MdWbSunny } from 'react-icons/md'
 import { DarkModeContext } from '../context/darkModeContext'
 import { AuthContext } from '../context/AuthContext'
+import { Link } from 'react-router-dom'
 import './navbar.scss'
 
 const Navbar = () => {
@@ -16,6 +17,11 @@ const Navbar = () => {
 
     return (
         <div className='navbar'>
+            <div className="mainLogo">
+                <Link to='/'>
+                    <span className="logo">Booka_Admin</span>
+                </Link>
+            </div>
             <div className="navbarContainer">
                 <div className="item">
                     <TbWorld className='icon' />

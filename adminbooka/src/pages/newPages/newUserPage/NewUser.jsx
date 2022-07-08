@@ -37,11 +37,11 @@ const NewUser = () => {
     }
 
     return (
-        <div className='newPage'>
-            <Sidebar />
-            <div className="newPageContainer">
-                <Navbar />
-                <div className="newPageWrapper">
+        <div className='newUserPage'>
+            <Navbar />
+            <div className="newUserPageContainer">
+                <Sidebar />
+                <div className="newUserPageWrapper">
                     <div className="top">
                         <h1 className="addNew">Add new user</h1>
                     </div>
