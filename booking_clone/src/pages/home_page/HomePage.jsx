@@ -1,6 +1,6 @@
 import NavBar from '../../components/navbar/NavBar';
 import Header from '../../components/header/Header';
-import './homePage.css'
+import './homePage.scss'
 import Displayed from '../../components/displayed/Displayed';
 import PropertyList from '../../components/propertyList/PropertyList';
 import PreferedList from '../../components/preferedList/PreferedList';

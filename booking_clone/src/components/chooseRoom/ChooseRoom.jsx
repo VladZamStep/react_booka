@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import './chooseRoom.css'
+import { useState } from 'react'
+import './chooseRoom.scss'
 import { MdClose } from 'react-icons/md'
 import useFetch from '../../hooks/useFetch'
 import { useContext } from 'react'
@@ -12,7 +12,7 @@ const ChooseRoom = ({ setOpen, hotelId }) => {
     const [selected, setSelected] = useState([]);
     const navigate = useNavigate();
 
-    const loadingMessage = "Loading...";
+    const loadingMessage = "Loading..."; //ROUNDING
     const { data, loading, error, reFetch } = useFetch(`http://localhost:8800/api/hotels/room/${hotelId}`)
 
     const { dates } = useContext(SearchContext);

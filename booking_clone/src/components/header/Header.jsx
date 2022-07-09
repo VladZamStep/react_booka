@@ -1,5 +1,4 @@
-import './header.css';
-import './header_components/header_options/headerOptions.css'
+import './header.scss';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,7 +10,6 @@ import { format } from 'date-fns';
 import HeaderList from './header_components/HeaderList';
 import { useContext } from 'react';
 import { SearchContext } from '../../context/SearchContext';
-import { AuthContext } from '../../context/AuthContext';
 import HeaderOptions from './header_components/header_options/HeaderOptions';
 
 const Header = ({ type }) => {
@@ -72,7 +70,6 @@ const Header = ({ type }) => {
     }
 
     const { dispatch } = useContext(SearchContext);
-    const { user } = useContext(AuthContext);
 
     //Search 
     const handleSearch = () => {
@@ -91,7 +88,6 @@ const Header = ({ type }) => {
                     <>
                         <h1 className='headerTitle'>A lifetime of Discounts? It's Genius.</h1>
                         <p className='headerDescription'>Get rewards for your travels - unlock instant savings of 10% or more with free Booking account</p>
-                        {!user && <button className='headerBtn'>Sign in / Register</button>}
                         <div className="headerSearch">
                             <div className="headerSearchItem">
                                 <FontAwesomeIcon icon={faBed} className='headerIcon' />
@@ -136,7 +132,7 @@ const Header = ({ type }) => {
                             </div>
                             <div className="headerSearchItem">
                                 <button
-                                    className='headerBtn headerSearchBtn'
+                                    className='headerSearchBtn'
                                     onClick={handleSearch}>
                                     Search
                                 </button>

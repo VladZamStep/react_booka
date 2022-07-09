@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ImFolderUpload } from 'react-icons/im'
 import { userInputs } from '../../registerSource'
-import './registerPage.css'
+import './registerPage.scss'
 
 const RegisterPage = () => {
 
@@ -34,13 +34,15 @@ const RegisterPage = () => {
             console.log(err)
         }
     }
-    console.log(info)
     return (
         <div className='registerPage'>
-            <img src="https://www.tripsavvy.com/thmb/9UCe7bHm9MK9s_UO1nr_FcN-bKE=/5095x3383/filters:fill(auto,1)/usa--oregon--bend--illuminated-tent-by-lake-in-mountains-sb10070057l-001-5c3f91f746e0fb00012b9a84.jpg" alt="" />
+            <img
+                className='backgroundImg'
+                src="https://www.tripsavvy.com/thmb/9UCe7bHm9MK9s_UO1nr_FcN-bKE=/5095x3383/filters:fill(auto,1)/usa--oregon--bend--illuminated-tent-by-lake-in-mountains-sb10070057l-001-5c3f91f746e0fb00012b9a84.jpg" alt="" />
             <div className="registerContainer">
                 <form>
                     <img
+                        className='profileImg'
                         src={file
                             ? URL.createObjectURL(file)
                             : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"}
@@ -68,7 +70,10 @@ const RegisterPage = () => {
                         </div>
                     ))}
                 </form>
-                <button className="submitBtn" onClick={handleClick}>Register</button>
+                <div className="btns">
+                    <button className="submitBtn" onClick={() => navigate('/')}>Back</button>
+                    <button className="submitBtn" onClick={handleClick}>Register</button>
+                </div>
             </div>
         </div>
     )

@@ -1,4 +1,4 @@
-import './hotelPage.css'
+import './hotelPage.scss'
 import NavBar from '../../components/navbar/NavBar'
 import Header from '../../components/header/Header'
 import MailList from '../../components/mailList/MailList'
@@ -105,6 +105,7 @@ const HotelPage = () => {
                                 title={data.title}
                                 description={data.description}
                                 days={days}
+                                rating={data.rating}
                                 cheapestPrice={data.cheapestPrice}
                                 id={id}
                             />

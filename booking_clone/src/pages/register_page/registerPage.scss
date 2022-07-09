@@ -1,0 +1,111 @@
+@import "src/scss/abstracts/_variables";
+@import "src/scss/abstracts/_mixins";
+
+.registerPage {
+    height: 100vh;
+    @include flexCenterObject;
+    flex-direction: column;
+
+    .backgroundImg {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        z-index: -50;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -40;
+        background-color: $lightBlackTransparent;
+    }
+
+    .registerContainer {
+        display: flex;
+        flex-direction: column;
+        gap: .25em;
+        background-color: $lightWhiteTransparent;
+        padding: 2em;
+        backdrop-filter: blur(5px);
+        border-radius: $smallBR;
+
+        form {
+            @include flexCenterObject;
+            flex-direction: column;
+
+            .profileImg {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                object-fit: cover;
+                @include darkShadowMixin;
+            }
+
+            .registerInput {
+                font-size: .85rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: .25em;
+                padding-top: .5em;
+                color: $white;
+
+                .imageLabel {
+                    font-size: .9rem;
+                    display: flex;
+                    align-items: center;
+                    gap: .5em;
+                    cursor: pointer;
+                    padding: .25em .5em;
+                    transition: $transition;
+
+                    &:hover {
+                        color: $lightBlue;
+                    }
+                }
+
+                input {
+                    height: 40px;
+                    outline: none;
+                    padding-inline: 1em;
+                    border: 1px solid $lightBlue;
+                    border-radius: $smallBR;
+
+                    &:hover,
+                    &:focus {
+                        border: 1px solid $middleBlue;
+                    }
+                }
+            }
+        }
+
+        .btns {
+            margin-top: .25em;
+            display: flex;
+            gap: .5em;
+
+            .submitBtn {
+                height: 40px;
+                width: 100%;
+                font-size: .9rem;
+                background-color: $lightBlue;
+                color: $white;
+                border: none;
+                border-radius: $smallBR;
+                font-weight: 500;
+                padding-inline: 1.1em;
+                cursor: pointer;
+                transition: $transition;
+
+                &:hover {
+                    background-color: $middleBlue;
+                    @include thinShadowMixin;
+                }
+            }
+        }
+    }
+}

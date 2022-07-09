@@ -1,0 +1,135 @@
+@import "src/scss/abstracts/_variables";
+@import "src/scss/abstracts/_mixins";
+
+.listContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.15em;
+    position: relative;
+
+    .listWrapper {
+        width: 100%;
+        max-width: 1024px;
+        display: flex;
+        gap: 1.15em;
+
+        .listSearch {
+            flex: 1;
+            background-color: white;
+            position: sticky;
+            padding: .65em .95em;
+            border-radius: $smallBR;
+            color: $hardGray;
+            top: 1.1em;
+            @include standartShadowMixin;
+            height: max-content;
+
+            .listTitle {
+                font-size: 1.2rem;
+                font-weight: 500;
+            }
+
+            .listItem {
+                display: flex;
+                flex-direction: column;
+                padding: .2rem 0;
+
+                .specLabel {
+                    font-size: .75rem;
+                }
+
+                .specInput {
+                    height: 40px;
+                    padding-inline: .65em;
+                    margin-top: .4em;
+                    outline: none;
+                    border: none;
+                    border-radius: $smallBR;
+                    border: 2px solid $lightBlue;
+                    transition: $transition;
+
+                    &:hover {
+                        border: 2px solid $middleBlue;
+                    }
+                }
+
+                .dateOptionSpan {
+                    height: 40px;
+                    padding-inline: .65em;
+                    margin: .4em 0;
+                    background-color: $white;
+                    border: 2px solid $lightBlue;
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
+                    font-size: .85rem;
+                    border-radius: $smallBR;
+                    transition: $transition;
+
+                    &:hover {
+                        border: 2px solid $middleBlue;
+                    }
+                }
+
+                .dateR {
+                    position: absolute;
+                    top: 190px;
+                    z-index: 2;
+                    @include darkShadowMixin;
+                }
+            }
+
+            .searchBtn {
+                width: 100%;
+                height: 40px;
+                padding-inline: .65em;
+                margin: .4em 0;
+                background-color: $lightBlue;
+                color: $white;
+                cursor: pointer;
+                font-size: .9rem;
+                border-radius: $smallBR;
+                border: none;
+                outline: none;
+                transition: $transition;
+
+                &:hover {
+                    background-color: $middleBlue;
+                }
+            }
+
+            .listAdd {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: .75rem;
+
+                input {
+                    width: 80px;
+                    height: 40px;
+                    text-align: center;
+                    outline: none;
+                    border: 2px solid $lightBlue;
+                    border-radius: $smallBR;
+                    margin-block: .4em;
+                    transition: $transition;
+
+                    &:hover {
+                        border: 2px solid $middleBlue;
+                    }
+                }
+            }
+
+            .listOptions {
+                display: flex;
+                justify-content: center;
+                transform: translateY(-62px);
+            }
+        }
+
+        .listResult {
+            flex: 3;
+            background-color: $white;
+        }
+    }
+}

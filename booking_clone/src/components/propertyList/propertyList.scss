@@ -1,0 +1,59 @@
+@import "src/scss/abstracts/_variables";
+@import "src/scss/abstracts/_mixins";
+
+.propListContainer {
+    width: 100%;
+    @include bottomShadowMixin;
+    padding-bottom: 1.5em;
+
+    .propList {
+        width: 100%;
+        max-width: 1024px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 1.25em;
+        justify-content: space-between;
+
+        .pListItem {
+            cursor: pointer;
+            transition: $transition;
+
+            &:hover {
+                transform: scale(1.04);
+            }
+
+            .imgPlate {
+                border-radius: $smallBR;
+                height: 150px;
+                margin-bottom: .5em;
+
+                img {
+                    width: 100%;
+                    height: 150px;
+                    object-fit: cover;
+                    border-radius: $smallBR;
+                    @include darkShadowMixin;
+                }
+            }
+
+            .pListDesc {
+                h1 {
+                    font-size: 1rem;
+                    text-transform: capitalize;
+
+                }
+
+                h2 {
+                    font-size: .9rem;
+                    color: $middleGray;
+                    font-weight: 300;
+                }
+            }
+        }
+
+
+    }
+
+
+}

@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthContext'
-import './loginPage.css'
+import './loginPage.scss'
 
 const LoginPage = () => {
 
@@ -57,7 +57,10 @@ const LoginPage = () => {
                     placeholder='Password'
                     onChange={handleChange}
                 />
-                <button disabled={loading} className="submitBtn" onClick={handleClick}>Login</button>
+                <div className="btns">
+                    <button className="submitBtn" onClick={() => navigate('/')}>Back</button>
+                    <button disabled={loading} className="submitBtn" onClick={handleClick}>Sign in</button>
+                </div>
 
             </div>
             {error && <span>{error.message}</span>}

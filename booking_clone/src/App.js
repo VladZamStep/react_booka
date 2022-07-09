@@ -3,7 +3,7 @@ import HomePage from './pages/home_page/HomePage';
 import HotelPage from './pages/hotel_page/HotelPage';
 import ListPage from './pages/list_page/ListPage';
 import LoginPage from './pages/login_page/LoginPage';
-import './app.css';
+import './styles.scss';
 import RegisterPage from './pages/register_page/RegisterPage';
 
 const App = () => {

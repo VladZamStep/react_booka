@@ -1,10 +1,10 @@
 import useFetch from '../../hooks/useFetch';
-import './propertyList.css';
+import './propertyList.scss';
 
 const PropertyList = () => {
 
     const loadingMessage = "Loading...";
-    const { data, loading, error } = useFetch("http://localhost:8800/api/hotels/countByType")
+    const { data, loading } = useFetch("http://localhost:8800/api/hotels/countByType")
 
     const imgData = [
         "https://t-cf.bstatic.com/xdata/images/xphoto/square300/57584488.webp?k=bf724e4e9b9b75480bbe7fc675460a089ba6414fe4693b83ea3fdd8e938832a6&o=",
@@ -23,7 +23,7 @@ const PropertyList = () => {
                         {data && imgData.map((img, index) => (
                             < div className="pListItem" key={index}>
                                 <div className='imgPlate'>
-                                    <img src={img} alt="img" />
+                                    <img src={img} alt="" />
                                 </div>
                                 <div className="pListDesc">
                                     <h1>{data[index]?.type}</h1>

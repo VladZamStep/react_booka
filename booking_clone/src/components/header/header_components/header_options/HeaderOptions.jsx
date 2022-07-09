@@ -1,3 +1,5 @@
+import './headerOptions.scss'
+
 const HeaderOptions = (props) => {
     return (
         <div className="options">

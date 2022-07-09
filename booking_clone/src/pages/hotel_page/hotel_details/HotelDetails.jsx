@@ -1,4 +1,4 @@
-import './hotelDetails.css'
+import './hotelDetails.scss'
 import { useContext, useState } from 'react';
 import { SearchContext } from '../../../context/SearchContext';
 import { useNavigate } from 'react-router-dom';
@@ -19,6 +19,7 @@ const HotelDetails = (props) => {
             navigate("/login");
         }
     }
+    console.log(props)
     return (
         <>
             <div className="hotelDetails">
@@ -27,13 +28,17 @@ const HotelDetails = (props) => {
                     <p className="hotelDesc">{props.description}</p>
                 </div>
                 <div className="hotelPrice">
-                    <h1>Perfect for a {props.days}-night stay!</h1>
-                    <span>
-                        Located in the real heart of Krakow, this property has an
-                        excellent location score of 9.8!
-                    </span>
-                    <h2><b>${props.days * props.cheapestPrice * options.rooms}</b> ({props.days} nights)</h2>
-                    <button onClick={handleClick}>Reserve or Book Now!</button>
+                    <div className="top">
+                        <h1>Perfect for a {props.days}-night stay!</h1>
+                        <span>
+                            Want a great night's sleep?<br />
+                            This hotel was highly-rated by recent guests! <b className='greenRating'>({props.rating})</b>
+                        </span>
+                    </div>
+                    <div className="bottom">
+                        <h2><b>${props.days * props.cheapestPrice * options.rooms}</b> ({props.days} nights)</h2>
+                        <button onClick={handleClick}>Reserve or Book Now!</button>
+                    </div>
                 </div>
             </div>
             {openModal && <ChooseRoom setOpen={setOpenModal} hotelId={props.id} />}

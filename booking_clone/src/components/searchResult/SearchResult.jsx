@@ -1,4 +1,4 @@
-import './searchResult.css';
+import './searchResult.scss';
 import { Link } from 'react-router-dom';
 
 const SearchResult = (props) => {
@@ -8,7 +8,9 @@ const SearchResult = (props) => {
                 src={props.element.photos[0]}
                 alt="" />
             <div className="srDesc">
-                <h1 className="srTitle">{props.element.name}</h1>
+                <Link to={`/hotels/${props.element._id}`}>
+                    <h1 className="srTitle">{props.element.name}</h1>
+                </Link>
                 <span className="srDistance">{props.element.distance} m from center</span>
                 <span className="srTaxiOpt">Free airport taxi</span>
                 <span className="srSubtitle">{props.element.shortDescription}</span>

@@ -1,5 +1,4 @@
-import './listPage.css'
-import '../../components/header/header_components/header_options/headerOptions.css'
+import './listPage.scss'
 import Header from '../../components/header/Header'
 import NavBar from '../../components/navbar/NavBar'
 import { useLocation } from 'react-router-dom'
@@ -51,8 +50,9 @@ const ListPage = () => {
                     <div className="listSearch">
                         <h1 className='listTitle'>Search</h1>
                         <div className="listItem">
-                            <label>Destination/property name:</label>
+                            <label className='specLabel'>Destination/property name:</label>
                             <input
+                                className='specInput'
                                 type="text"
                                 placeholder={destination}
                                 onChange={e => {
@@ -62,9 +62,9 @@ const ListPage = () => {
                                 }} />
                         </div>
                         <div className="listItem">
-                            <label>Check-in Date</label>
+                            <label className='specLabel'>Check-in Date</label>
                             <span onClick={() => setOpenDate(!openDate)}
-                                className='dateSpan'>{
+                                className='dateOptionSpan'>{
                                     `${format(dates[0].startDate, "MM/dd/yyyy")}
                                 to
                                 ${format(dates[0].endDate, "MM/dd/yyyy")}`
@@ -75,10 +75,10 @@ const ListPage = () => {
                                 ranges={dates}
                                 minDate={new Date}
                             />}
-                            <label>12-night stay</label>
+                            <label className='specLabel'>12-night stay</label>
                         </div>
                         <div className="listItem">
-                            <span onClick={() => setOpenOpt(!openOpt)}>
+                            <span className='dateOptionSpan' onClick={() => setOpenOpt(!openOpt)}>
                                 {`${options.adults} adult · ${options.children} children · ${options.rooms} room`}
                             </span>
                         </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import useFetch from '../../hooks/useFetch.js'
-import './displayed.css'
+import './displayed.scss'
 const Displayed = () => {
 
     const loadingMessage = "Loading...";
@@ -13,7 +13,10 @@ const Displayed = () => {
                 {loading ? loadingMessage : (
                     <>
                         <div className="displayedItem">
-                            <img src="https://proprikol.ru/wp-content/uploads/2020/09/kartinki-los-andzheles-45.jpg" alt="" className="displayedImg" />
+                            <img className="displayedImg"
+                                src="https://proprikol.ru/wp-content/uploads/2020/09/kartinki-los-andzheles-45.jpg"
+                                alt=""
+                            />
                             <div className="imgItems">
                                 <h1 className="imgName">Los Angeles</h1>
                                 <h2 className="imgProp">{data[0]} properties</h2>

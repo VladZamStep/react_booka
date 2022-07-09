@@ -1,4 +1,4 @@
-import './headerList.css'
+import './headerList.scss'
 import { IoBedSharp } from 'react-icons/io5';
 import { FaCar, FaRegPaperPlane, FaTaxi } from 'react-icons/fa';
 import { MdOutlineAttractions } from 'react-icons/md';
@@ -7,23 +7,23 @@ const HeaderList = () => {
     return (
         <div className="headerList">
             <div className="headerListItem active">
-                <IoBedSharp />
+                <IoBedSharp className='icon' />
                 <span>Stays</span>
             </div>
             <div className="headerListItem">
-                <FaRegPaperPlane />
+                <FaRegPaperPlane className='icon' />
                 <span>Flights</span>
             </div>
             <div className="headerListItem">
-                <FaCar />
+                <FaCar className='icon' />
                 <span>Car rentals</span>
             </div>
             <div className="headerListItem">
-                <MdOutlineAttractions />
+                <MdOutlineAttractions className='icon' />
                 <span>Attractions</span>
             </div>
             <div className="headerListItem">
-                <FaTaxi />
+                <FaTaxi className='icon' />
                 <span>Taxi</span>
             </div>
         </div>

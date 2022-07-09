@@ -1,0 +1,33 @@
+@import "src/scss/abstracts/_variables";
+@import "src/scss/abstracts/_mixins";
+
+.footer {
+    width: 100vw;
+    max-width: 1024px;
+    font-size: .65rem;
+    line-height: 1.3rem;
+
+    .footerList {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 4.2em;
+
+        .footerListItem {
+            list-style: none;
+            cursor: pointer;
+            padding: 0;
+
+            &:hover {
+                color: $lightGray;
+            }
+        }
+
+
+    }
+
+    .footerText {
+        font-size: .6rem;
+        margin-bottom: 2em;
+    }
+}

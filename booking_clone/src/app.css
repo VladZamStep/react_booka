@@ -7,7 +7,7 @@
   --hardGray: rgb(51, 51, 51);
   --middleGray: hsl(0, 0%, 33%);
   --lightGray: hsl(0, 0%, 60%);
-  --superLightGray: hsl(0, 0%, 85%);
+  --superLightGray: rgb(217, 217, 217);
   --blackTransparent: rgba(0, 0, 0, 0.4);
   --lightBlackTransparent: rgba(0, 0, 0, 0.2);
   --lightWhiteTransparent: rgba(255, 255, 255, 0.1);
