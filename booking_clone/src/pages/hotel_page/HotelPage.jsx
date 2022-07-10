@@ -97,7 +97,8 @@ const HotelPage = () => {
                                     <img
                                         key={index}
                                         onClick={() => handleOpen(index)}
-                                        className='hotelImg' src={photo} alt="" />
+                                        className='hotelImg' src={photo} alt=""
+                                    />
                                 ))
                                 }
                             </div>
