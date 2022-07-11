@@ -4,7 +4,6 @@
 .displayContainer {
     width: 100%;
     @include bottomShadowMixin;
-    padding-bottom: 1.5em;
 
     .displayed {
         max-width: 1024px;
@@ -12,6 +11,20 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 1.25em;
+        padding: 1.2rem 1.2rem 1.5rem 1.2rem;
+
+        @include for-desktop-up {
+            padding: 0 0 1.5rem 0;
+        }
+
+        @include for-tablet-landscape-up {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        @include for-phone-only {
+            padding: 3rem 1.2rem 1.5rem 1.2rem;
+        }
+
 
         .displayedItem {
             position: relative;
@@ -23,6 +36,15 @@
             box-shadow: $standartShadow;
             transition: $transition;
             cursor: pointer;
+
+            @include for-tablet-landscape-up {
+                height: 350px;
+            }
+
+            @include for-phone-only {
+                height: 300px;
+            }
+
 
             &:hover {
                 transform: scale(1.02);

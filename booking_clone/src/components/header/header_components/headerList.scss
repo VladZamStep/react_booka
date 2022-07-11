@@ -4,6 +4,17 @@
 .headerList {
     display: flex;
     gap: 2.25em;
+    flex-wrap: wrap;
+
+    @include for-tablet-landscape-up {
+        justify-content: center;
+        margin: 0 auto;
+        gap: 1.5em;
+    }
+
+    @include for-phone-only {
+        font-size: .9rem;
+    }
 
     .headerListItem {
         display: flex;

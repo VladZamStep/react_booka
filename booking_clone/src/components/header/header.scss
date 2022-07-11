@@ -8,20 +8,40 @@
     justify-content: center;
     position: relative;
     @include bottomShadowMixin;
+    padding: 0 1.2rem 1.2rem 1.2rem;
 
+    @include for-desktop-up {
+        padding: 0;
+    }
 
     .headerContainer {
         width: 100%;
         max-width: 1024px;
         margin: 2em auto 4em auto;
 
+        @include for-tablet-landscape-up {
+            width: 95vw;
+        }
+
         .headerTitle {
             font-size: 2rem;
             margin-top: 2em;
+
+            @include for-phone-only {
+                text-align: center;
+                font-size: 1.5rem;
+                margin-top: 1.5em;
+            }
         }
 
         .headerDescription {
             margin: 1em 0;
+
+            @include for-phone-only {
+                text-align: center;
+                font-size: .9rem;
+                margin: 2em 0;
+            }
         }
 
         .headerSearch {
@@ -35,13 +55,45 @@
             border-radius: $smallBR;
             position: absolute;
             bottom: -30px;
-            width: 100%;
-            max-width: 1024px;
+            width: calc(100vw - 2.4rem);
+
+            @include for-desktop-up {
+                width: 1024px;
+            }
+
+            @include for-tablet-landscape-up {
+                max-width: calc(1024px - 2.4rem);
+                height: 70px;
+                margin: 0 auto;
+            }
+
+            @include for-phone-only {
+                position: absolute;
+                bottom: 0;
+                transform: translateY(50%);
+                padding: .5em;
+                flex-direction: column;
+                height: 170px;
+                max-width: calc(1024px - 2.4rem);
+                margin: 0 auto;
+                z-index: 10;
+
+            }
 
             .headerSearchItem {
                 display: flex;
                 align-items: center;
                 gap: .8rem;
+
+                @include for-phone-only {
+                    width: 100%;
+                    border-bottom: 1px solid $lightBlue;
+                    justify-content: center;
+
+                    &:last-child {
+                        border: none;
+                    }
+                }
 
                 .headerIcon {
                     color: $lightBlue;

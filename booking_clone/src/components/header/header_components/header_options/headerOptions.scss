@@ -11,6 +11,10 @@
     overflow: hidden;
     z-index: 2;
 
+    @include for-phone-only {
+        top: 92px;
+    }
+
     .optionItem {
         width: 260px;
         display: flex;

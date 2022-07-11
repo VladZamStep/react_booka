@@ -7,6 +7,20 @@
     display: flex;
     gap: 1.25em;
     justify-content: space-between;
+    padding: 0 1.2rem 1.5rem 1.2rem;
+
+    @include for-desktop-up {
+        padding: 0 0 1.5rem 0;
+    }
+
+    @include for-tablet-landscape-up {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include for-phone-only {
+        grid-template-columns: 1fr;
+    }
 
     .prefListItem {
         flex: 1;
@@ -27,6 +41,14 @@
             object-fit: cover;
             border-radius: $smallBR;
             margin-bottom: .6em;
+
+            @include for-tablet-landscape-up {
+                height: 200px;
+            }
+
+            @include for-phone-only {
+                height: 250px;
+            }
         }
 
         .prefName,

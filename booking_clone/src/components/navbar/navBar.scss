@@ -16,6 +16,10 @@
         justify-content: space-between;
         align-items: center;
 
+        @include for-phone-only {
+            padding-inline: .5em;
+        }
+
         .logo {
             color: $white;
             font-weight: 600;
@@ -24,6 +28,10 @@
             padding: .1em 1.1em;
             border-radius: $smallBR;
             transition: $transition;
+
+            @include for-phone-only {
+                padding: .1em .5em;
+            }
         }
 
         .navItems {
@@ -64,6 +72,10 @@
             padding-inline: 1.1em;
             cursor: pointer;
             transition: $transition;
+
+            @include for-phone-only {
+                padding-inline: .25em;
+            }
         }
 
         .navBtn:hover,
