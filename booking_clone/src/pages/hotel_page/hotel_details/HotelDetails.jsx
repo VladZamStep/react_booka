@@ -19,7 +19,7 @@ const HotelDetails = (props) => {
             navigate("/login");
         }
     }
-    console.log(props)
+
     return (
         <>
             <div className="hotelDetails">

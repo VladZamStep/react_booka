@@ -30,6 +30,7 @@
             transition: $transition;
 
             @include for-phone-only {
+                font-size: 1.15rem;
                 padding: .1em .5em;
             }
         }
@@ -74,6 +75,7 @@
             transition: $transition;
 
             @include for-phone-only {
+                font-size: .8rem;
                 padding-inline: .25em;
             }
         }

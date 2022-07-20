@@ -81,6 +81,7 @@
                 .imageLabel {
                     font-size: .9rem;
                     display: flex;
+                    justify-content: center;
                     align-items: center;
                     gap: .5em;
                     cursor: pointer;
@@ -94,7 +95,6 @@
 
                 input {
                     height: 40px;
-
                     outline: none;
                     padding-inline: 1em;
                     border: 1px solid $lightBlue;
@@ -109,6 +109,7 @@
                 .labelBox {
                     display: flex;
                     align-items: center;
+                    padding-left: .2em;
 
                     .valid {
                         color: $lightGreen;
@@ -179,6 +180,11 @@
                 &:hover {
                     background-color: $middleBlue;
                     @include thinShadowMixin;
+                }
+
+                &:disabled {
+                    background-color: $lightGray;
+                    cursor: no-drop;
                 }
             }
         }

@@ -7,6 +7,11 @@
     flex-direction: column;
     align-items: center;
     gap: 1.75em;
+    padding: 0 1.2rem 1.2rem 1.2rem;
+
+    @include for-desktop-up {
+        padding: 0;
+    }
 
     .hotelWrapper {
         width: 100%;
@@ -18,10 +23,16 @@
         padding: 1em;
         @include standartShadowMixin;
 
+
         .hotelTitle {
             font-size: 1.5rem;
-            padding-bottom: .5rem;
+            padding-bottom: .5em;
             color: $hardGray;
+
+            @include for-phone-only {
+                font-size: 1.25rem;
+                text-align: center;
+            }
         }
 
         .hotelAddress {
@@ -29,6 +40,10 @@
             align-items: center;
             font-size: .75em;
             gap: .25em;
+
+            @include for-phone-only {
+                text-align: center;
+            }
         }
 
         .hotelDistance {
@@ -36,6 +51,11 @@
             margin: .5em 0 .25em 0;
             color: $lightBlue;
             font-weight: 500;
+
+            @include for-phone-only {
+                font-size: .8rem;
+                text-align: center;
+            }
         }
 
         .hotelPriceBonus {
@@ -43,6 +63,12 @@
             margin-bottom: .5em;
             color: $green;
             font-weight: 500;
+
+            @include for-phone-only {
+                padding: .25em 0 1em;
+                font-size: .8rem;
+                text-align: center;
+            }
         }
 
         .hotelImages {
@@ -50,8 +76,13 @@
             grid-template-columns: repeat(3, 1fr);
             gap: .25em;
 
+            @include for-phone-only {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .hotelImg {
                 width: 100%;
+                height: 100%;
                 object-fit: cover;
                 overflow: hidden;
                 border-radius: $smallBR;
@@ -70,75 +101,119 @@
         @include flexCenterObject;
         z-index: 10;
 
-        .arrowL {
-            color: $superLightBlue;
-            background-color: $blackTransparent;
-            height: 70vh;
-            font-size: 6rem;
-            border-radius: .1em 0 0 .1em;
-            @include darkShadowMixin;
-            cursor: pointer;
-        }
-
-        .sliderWrapper {
-            position: relative;
+        .sliderContainer {
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
 
-            .sliderImg {
-                height: 70vh;
+            .sliderWrapper {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 50vw;
+
+                @include for-tablet-landscape-up {
+                    height: 45vw;
+                }
+
+                @include for-phone-only {
+                    width: calc(100vw - 10px);
+                    height: 65vw;
+                }
+
+                .arrowL {
+                    position: absolute;
+                    left: 0;
+                    height: 100%;
+                    color: $superLightBlue;
+                    background-color: $blackTransparent;
+                    font-size: 4.5rem;
+                    @include darkShadowMixin;
+                    cursor: pointer;
+                    z-index: 120;
+                    border-radius: .5rem 0 0 .5rem;
+
+                    @include for-tablet-landscape-up {
+                        font-size: 3rem;
+                    }
+                }
+
+                .sliderImg {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    @include darkShadowMixin;
+                    border-radius: .5rem;
+                }
+
+                .arrowR {
+                    position: absolute;
+                    right: 0;
+                    height: 100%;
+                    color: $superLightBlue;
+                    background-color: $blackTransparent;
+                    font-size: 4.5rem;
+                    @include darkShadowMixin;
+                    cursor: pointer;
+                    z-index: 120;
+                    border-radius: 0 .5rem .5rem 0;
+
+                    @include for-tablet-landscape-up {
+                        font-size: 3rem;
+                    }
+                }
+
+                .container-dots {
+                    background-color: $blackTransparent;
+                    padding: .25em;
+                    border-radius: $smallBR;
+                    position: absolute;
+                    left: 50%;
+                    bottom: 0;
+                    transform: translate(-50%, 130%);
+                    display: flex;
+
+                    .dot {
+                        width: .6em;
+                        height: .6em;
+                        border-radius: 50%;
+                        border: 1px solid $white;
+                        margin: 0 3px;
+                        background: $white;
+                        cursor: pointer;
+                    }
+
+                    .active {
+                        background: $black;
+                    }
+                }
+            }
+
+            .close {
+                position: absolute;
+                top: 1.5em;
+                right: 2.4em;
+                background-color: $blackTransparent;
+                color: $superLightBlue;
+                height: 40px;
+                width: 40px;
+                border-radius: $smallBR;
                 @include darkShadowMixin;
-            }
-        }
-
-        .arrowR {
-            color: $superLightBlue;
-            background-color: $blackTransparent;
-            height: 70vh;
-            font-size: 6rem;
-            border-radius: 0 .1em .1em 0;
-            @include darkShadowMixin;
-            cursor: pointer;
-        }
-
-        .close {
-            position: absolute;
-            top: 1.5em;
-            right: 2em;
-            background-color: $blackTransparent;
-            color: $superLightBlue;
-            height: 50px;
-            width: 50px;
-            border-radius: $smallBR;
-            @include darkShadowMixin;
-            cursor: pointer;
-        }
-
-        .container-dots {
-            background-color: $blackTransparent;
-            padding: .25em;
-            border-radius: $smallBR;
-            position: absolute;
-            left: 50%;
-            top: calc(85vh - 25px);
-            transform: translateX(-50%);
-            display: flex;
-
-            .dot {
-                width: .6em;
-                height: .6em;
-                border-radius: 50%;
-                border: 1px solid $white;
-                margin: 0 3px;
-                background: $white;
                 cursor: pointer;
-            }
 
-            .active {
-                background: $black;
+                @include for-tablet-landscape-up {
+                    right: 1.5em;
+                }
             }
         }
     }
+}
+
+.mailFooter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.75em;
 }

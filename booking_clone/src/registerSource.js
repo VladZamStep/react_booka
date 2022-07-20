@@ -16,14 +16,6 @@ export const userInputs = [
         value: "phone"
     },
     {
-        id: "password",
-        label: "Password",
-        type: "password",
-        placeholder: "******",
-        htmlForOpt: "password",
-        value: "pwd"
-    },
-    {
         id: "country",
         label: "Country",
         type: "text",

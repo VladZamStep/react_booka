@@ -31,7 +31,6 @@ const ChooseRoom = ({ setOpen, hotelId }) => {
         return list
     }
     const allDates = getDatesInRange(dates[0].startDate, dates[0].endDate);
-
     const isAvailable = (roomNumber) => {
         const isFound = roomNumber.unavailableDates.some((date) =>
             allDates.includes(new Date(date).getTime())
@@ -56,14 +55,15 @@ const ChooseRoom = ({ setOpen, hotelId }) => {
                     return res.data;
                 })
             );
-            setOpen(false);
-            navigate("/");
+            if (!selected.length == 0) {
+                setOpen(false);
+            }
         } catch (err) {
             console.log(err);
         }
     };
+    console.log(selected)
 
-    console.log(data)
     return (
         <div className="chooseRoom">
             <div className="chooseRoomContainer">

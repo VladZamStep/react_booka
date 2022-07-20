@@ -64,6 +64,7 @@ const RegisterPage = () => {
             const { url } = uploadRes.data;
             const newUser = {
                 username: user,
+                password: pwd,
                 ...info,
                 img: url,
             };
@@ -73,7 +74,7 @@ const RegisterPage = () => {
             console.log(err)
         }
     }
-    console.log(info, user)
+    console.log(info, user, pwd)
     return (
         <div className='registerPage'>
             <img
@@ -88,6 +89,9 @@ const RegisterPage = () => {
                             : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"}
                         alt=""
                     />
+
+                    {/*Image Input*/}
+
                     <div className="registerInput">
                         <label className="imageLabel" htmlFor='file'>
                             Image: <ImFolderUpload className="icon" />
@@ -98,6 +102,9 @@ const RegisterPage = () => {
                             onChange={e => setFile(e.target.files[0])}
                             style={{ display: "none" }} />
                     </div>
+
+                    {/*Username Input*/}
+
                     <div className="registerInput">
                         <label htmlFor="username">
                             <div className="labelBox">
@@ -110,10 +117,12 @@ const RegisterPage = () => {
                             type="text"
                             id="username"
                             autoComplete="off"
+                            placeholder="Vlad_Step"
                             onChange={(e) => setUser(e.target.value)}
                             value={user}
                             required
                             aria-invalid={validName ? "false" : "true"}
+                            aria-describedby="uidnote"
                             onFocus={() => setUserFocus(true)}
                             onBlur={() => setUserFocus(false)}
                         />
@@ -127,12 +136,72 @@ const RegisterPage = () => {
                         </p>
                     </div>
 
+                    {/*Password Input*/}
 
+                    <div className="registerInput">
+                        <label htmlFor="password">
+                            <div className="labelBox">
+                                Password:
+                                <BsCheck className={validPwd ? 'valid' : 'hide'} />
+                                <MdClose className={validPwd || !pwd ? "hide" : "invalid"} />
+                            </div>
+                        </label>
+                        <input
+                            type="password"
+                            id="password"
+                            autoComplete="off"
+                            placeholder="********"
+                            onChange={(e) => setPwd(e.target.value)}
+                            value={pwd}
+                            required
+                            aria-invalid={validPwd ? "false" : "true"}
+                            aria-describedby="pwdnote"
+                            onFocus={() => setPwdFocus(true)}
+                            onBlur={() => setPwdFocus(false)}
+                        />
+                        <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
+                            <div className='infoInstructions'>
+                                <BsInfoCircle />
+                                8 to 24 characters.
+                            </div>
+                            Must include uppercase and lowercase letters, a number and a special character.<br />
+                            Allowed special characters: <br />
+                            <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
+                        </p>
+                    </div>
 
+                    {/*Confirm Password Input*/}
 
+                    <div className="registerInput">
+                        <label htmlFor="confirm_pwd">
+                            <div className="labelBox">
+                                Confirm Password:
+                                <BsCheck className={validMatch && matchPwd ? 'valid' : 'hide'} />
+                                <MdClose className={validMatch || !matchPwd ? "hide" : "invalid"} />
+                            </div>
+                        </label>
+                        <input
+                            type="password"
+                            id="confirm_pwd"
+                            autoComplete="off"
+                            placeholder="********"
+                            onChange={(e) => setMatchPwd(e.target.value)}
+                            value={matchPwd}
+                            required
+                            aria-invalid={validMatch ? "false" : "true"}
+                            aria-describedby="confirmnote"
+                            onFocus={() => setMatchFocus(true)}
+                            onBlur={() => setMatchFocus(false)}
+                        />
+                        <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
+                            <div className='infoInstructions'>
+                                <BsInfoCircle />
+                                Must match the first password input field.
+                            </div>
+                        </p>
+                    </div>
 
-
-
+                    {/*Other Inputs*/}
 
                     {userInputs.map((input) => (
                         <div className="registerInput" key={input.id}>
@@ -149,8 +218,19 @@ const RegisterPage = () => {
                     ))}
                 </form>
                 <div className="btns">
-                    <button className="submitBtn" onClick={() => navigate('/')}>Back</button>
-                    <button className="submitBtn" onClick={handleClick}>Register</button>
+                    <button
+                        className="submitBtn"
+                        onClick={() => navigate('/')}
+                    >
+                        Back
+                    </button>
+                    <button
+                        disabled={!validName || !validPwd || !validMatch ? true : false}
+                        className="submitBtn"
+                        onClick={handleClick}
+                    >
+                        Sign Up
+                    </button>
                 </div>
             </div>
         </div>

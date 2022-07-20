@@ -11,6 +11,7 @@ import useFetch from '../../hooks/useFetch'
 import { useLocation } from 'react-router-dom'
 import { useContext } from 'react'
 import { SearchContext } from '../../context/SearchContext'
+import { dayDifference } from '../../components/daysDifference/daysDifference'
 
 const HotelPage = () => {
 
@@ -22,12 +23,6 @@ const HotelPage = () => {
 
     const { dates, options } = useContext(SearchContext);
 
-    const MILLISEC_PER_DAY = 1000 * 60 * 60 * 24;
-    const dayDifference = (date1, date2) => {
-        const timeDifference = Math.abs(Date.parse(date2) - Date.parse(date1));
-        const diffDays = Math.ceil(timeDifference / MILLISEC_PER_DAY);
-        return diffDays;
-    }
     const days = (dayDifference(dates[0].endDate, dates[0].startDate));
 
     const [current, setCurrent] = useState(0)
@@ -57,27 +52,29 @@ const HotelPage = () => {
     }
 
     return (
-        <div>
+        <div className='hotelPage'>
             <NavBar />
             <Header type="list" />
             {loading ? loadingMessage :
                 (
                     <div className="hotelContainer">
                         {open && <div className="slider">
-                            <MdArrowLeft className='arrowL' onClick={() => { handleMove('left') }} />
-                            <div className="sliderWrapper">
-                                <img className='sliderImg' src={data.photos[current]} alt="" />
-                            </div>
-                            <MdArrowRight className='arrowR' onClick={() => { handleMove('right') }} />
-                            <MdClose className='close' onClick={() => setOpen(false)} />
-                            <div className="container-dots">
-                                {Array.from({ length: length }).map((item, index) => (
-                                    <div
-                                        key={index}
-                                        onClick={() => moveDot(index + 1)}
-                                        className={current === index ? "dot active" : "dot"}
-                                    ></div>
-                                ))}
+                            <div className="sliderContainer">
+                                <div className="sliderWrapper">
+                                    <MdArrowLeft className='arrowL' onClick={() => { handleMove('left') }} />
+                                    <img className='sliderImg' src={data.photos[current]} alt="" />
+                                    <MdArrowRight className='arrowR' onClick={() => { handleMove('right') }} />
+                                    <div className="container-dots">
+                                        {Array.from({ length: length }).map((item, index) => (
+                                            <div
+                                                key={index}
+                                                onClick={() => moveDot(index + 1)}
+                                                className={current === index ? "dot active" : "dot"}
+                                            ></div>
+                                        ))}
+                                    </div>
+                                </div>
+                                <MdClose className='close' onClick={() => setOpen(false)} />
                             </div>
                         </div>}
                         <div className="hotelWrapper">
@@ -111,9 +108,11 @@ const HotelPage = () => {
                                 id={id}
                             />
                         </div>
-                        <MailList />
-                        <Footer />
                     </div>)}
+            <div className="mailFooter">
+                <MailList />
+                <Footer />
+            </div>
         </div>
     )
 }

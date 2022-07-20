@@ -4,7 +4,7 @@
 .searchResult {
     display: flex;
     justify-content: space-between;
-    gap: 1.1em;
+    gap: .65em;
     margin-bottom: 1.1em;
     padding: .65em;
     border-radius: $smallBR;
@@ -15,12 +15,21 @@
         @include standartBlackShadowMixin;
     }
 
+    @include for-phone-only {
+        flex-direction: column;
+    }
+
     .srImg {
         width: 200px;
-        aspect-ratio: 1;
+        height: 200px;
         object-fit: cover;
         cursor: pointer;
         border-radius: $smallBR;
+
+        @include for-phone-only {
+            width: 100%;
+            height: 100%;
+        }
     }
 
     .srDesc {
@@ -31,19 +40,28 @@
         .srTitle {
             font-size: 1.15rem;
             color: $lightBlue;
-            padding-bottom: .6rem;
+            padding-bottom: .6em;
             cursor: pointer;
             transition: $transition;
 
             &:hover {
                 color: $middleBlue;
             }
+
+            @include for-phone-only {
+                padding-bottom: .2em;
+                text-align: center;
+            }
         }
 
         .srDistance {
             font-size: .7rem;
-            padding-bottom: .7em;
+            padding-bottom: .6em;
             text-decoration: underline;
+
+            @include for-phone-only {
+                padding-bottom: .2em;
+            }
         }
 
         .srTaxiOpt {
@@ -54,12 +72,20 @@
             padding: .25em;
             margin: .65em 0 1.2em 0;
             border-radius: $smallBR;
+
+            @include for-phone-only {
+                margin: .2em 0;
+            }
         }
 
         .srSubtitle {
             font-size: .7rem;
             font-weight: bold;
             padding-block: .75em;
+
+            @include for-phone-only {
+                padding-block: .3em;
+            }
         }
 
         .srCancelOpt {
@@ -79,12 +105,23 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        min-width: 132px;
+
+        @include for-phone-only {
+            min-width: 100%;
+            justify-content: center;
+        }
 
         .srRating {
             display: flex;
             justify-content: right;
             gap: .65em;
             align-items: center;
+
+            @include for-phone-only {
+                justify-content: center;
+                padding-bottom: .4em;
+            }
 
             .srRatText {
                 font-size: .9rem;
@@ -113,32 +150,43 @@
             .optInfo {
                 font-size: .65rem;
                 text-align: right;
+
+                @include for-phone-only {
+                    text-align: center;
+                }
             }
 
             .price {
                 font-size: 1.2rem;
                 font-weight: 600;
                 text-align: right;
-            }
 
-            .availBtn {
-                width: 100%;
-                height: 40px;
-                padding-inline: .65em;
-                margin-top: .3em;
-                background-color: $lightBlue;
-                color: $white;
-                cursor: pointer;
-                font-size: .9rem;
-                border-radius: $smallBR;
-                border: none;
-                outline: none;
-                transition: $transition;
-
-                &:hover {
-                    background-color: $middleBlue;
+                @include for-phone-only {
+                    text-align: center;
                 }
             }
+
+        }
+
+        .availBtn {
+            width: 100%;
+            height: 40px;
+            padding-inline: .65em;
+            margin-top: .3em;
+            background-color: $lightBlue;
+            color: $white;
+            cursor: pointer;
+            font-size: .9rem;
+            border-radius: $smallBR;
+            border: none;
+            outline: none;
+            transition: $transition;
+
+            &:hover {
+                background-color: $middleBlue;
+            }
+
+            @include for-phone-only {}
         }
     }
 }

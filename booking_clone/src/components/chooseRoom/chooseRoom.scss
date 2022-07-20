@@ -20,6 +20,12 @@
         @include standartBlackShadowMixin;
         min-width: 500px;
 
+        @include for-phone-only {
+            padding: .75em;
+            min-width: 0;
+            margin: 1.1em;
+        }
+
         .closeCR {
             position: absolute;
             top: 0;
@@ -46,6 +52,10 @@
             align-items: center;
             gap: 2em;
             padding: 1em;
+
+            @include for-phone-only {
+                padding: 1em .5em;
+            }
 
             .cRItemInfo {
                 display: flex;

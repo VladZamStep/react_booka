@@ -26,10 +26,10 @@ const SearchResult = (props) => {
                     <span className="optInfo">1 night, 2 adults</span>
                     <span className="price">US${props.element.cheapestPrice}</span>
                     <span className="optInfo">Includes taxes and fees</span>
-                    <Link to={`/hotels/${props.element._id}`}>
-                        <button className="availBtn">See availability</button>
-                    </Link>
                 </div>
+                <Link to={`/hotels/${props.element._id}`}>
+                    <button className="availBtn">See availability</button>
+                </Link>
             </div>
         </div>
     )

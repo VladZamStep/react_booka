@@ -7,11 +7,20 @@
     margin-top: 1.1em;
     gap: 1em;
 
+    @include for-tablet-landscape-up {
+        align-items: center;
+        flex-direction: column;
+    }
+
     .hotelDetTexts {
         flex: 3;
 
         .hotelTitle {
             font-size: 1.5rem;
+
+            @include for-phone-only {
+                font-size: 1.15rem;
+            }
         }
 
         .hotelDesc {
@@ -19,6 +28,15 @@
             margin-right: 3em;
             font-size: .85rem;
             line-height: 1.5em;
+
+            @include for-tablet-landscape-up {
+                margin-right: 0;
+            }
+
+            @include for-phone-only {
+                font-size: .8rem;
+                text-align: justify;
+            }
         }
     }
 
@@ -30,6 +48,10 @@
         padding: 1em;
         border-radius: $smallBR;
         @include standartBlueShadowMixin;
+
+        @include for-phone-only {
+            text-align: center;
+        }
 
         h1 {
             font-size: 1rem;

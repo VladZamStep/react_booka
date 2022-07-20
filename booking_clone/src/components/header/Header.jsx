@@ -6,11 +6,14 @@ import { faBed, faCalendarDays, faPerson } from '@fortawesome/free-solid-svg-ico
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { DateRange } from 'react-date-range';
-import { format } from 'date-fns';
+import { format, getDate } from 'date-fns';
 import HeaderList from './header_components/HeaderList';
 import { useContext } from 'react';
 import { SearchContext } from '../../context/SearchContext';
 import HeaderOptions from './header_components/header_options/HeaderOptions';
+
+const HEADER_TITLE = "Explore the hotel world with Booka.com!";
+const HEADER_DESCRIPTION = "Find your best stay option! Search deals on hotels, apartments, resorts and much more...";
 
 const Header = ({ type }) => {
 
@@ -20,10 +23,13 @@ const Header = ({ type }) => {
     const [dates, setDates] = useState([
         {
             startDate: new Date(),
-            endDate: new Date(),
+            endDate: new Date(new Date().getTime() + (24 * 60 * 60 * 1000)),
             key: 'selection'
         }
     ]);
+    console.log(dates[0].startDate)
+    console.log(dates[0].endDate)
+
     const [openOpt, setOpenOpt] = useState(false)
     const [options, setOptions] = useState(
         {
@@ -33,7 +39,6 @@ const Header = ({ type }) => {
         }
     )
     const navigate = useNavigate();
-
     //Option's function
     const changeNum = (name, operation) => {
         setOptions((prev) => {
@@ -73,9 +78,12 @@ const Header = ({ type }) => {
 
     //Search 
     const handleSearch = () => {
-        closeDateOpt();
-        dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
-        navigate('/hotels', { state: { destination, dates, options } });
+        if (destination === "") return
+        else {
+            closeDateOpt();
+            dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
+            navigate('/hotels', { state: { destination, dates, options } });
+        }
     }
 
     //Main component
@@ -83,15 +91,15 @@ const Header = ({ type }) => {
         <div className='header'>
             <div className={type === 'list' ? "headerContainer listMode" : "headerContainer"}>
                 <HeaderList />
-
                 {type !== 'list' &&
                     <>
-                        <h1 className='headerTitle'>A lifetime of Discounts? It's Genius.</h1>
-                        <p className='headerDescription'>Get rewards for your travels - unlock instant savings of 10% or more with free Booking account</p>
+                        <h1 className='headerTitle'>{HEADER_TITLE}</h1>
+                        <p className='headerDescription'>{HEADER_DESCRIPTION}</p>
                         <div className="headerSearch">
                             <div className="headerSearchItem">
                                 <FontAwesomeIcon icon={faBed} className='headerIcon' />
-                                <input type="text"
+                                <input
+                                    type="text"
                                     placeholder='Where are you going?'
                                     className='headerSearchInput'
                                     onClick={closeDateOpt}
@@ -106,7 +114,8 @@ const Header = ({ type }) => {
                                 <FontAwesomeIcon icon={faCalendarDays} className='headerIcon' />
                                 <span
                                     onClick={changeStateDate}
-                                    className='headerSearchText'>
+                                    className='headerSearchText'
+                                >
                                     {
                                         `${format(dates[0].startDate, "MM/dd/yyyy")}
                                         to
@@ -124,8 +133,10 @@ const Header = ({ type }) => {
                             </div>
                             <div className="headerSearchItem">
                                 <FontAwesomeIcon icon={faPerson} className='headerIcon' />
-                                <span className='headerSearchText'
-                                    onClick={changeStateOpt}>
+                                <span
+                                    className='headerSearchText'
+                                    onClick={changeStateOpt}
+                                >
                                     {`${options.adults} adult · ${options.children} children · ${options.rooms} room`}
                                 </span>
                                 {openOpt && <HeaderOptions changeNum={changeNum} options={options} />}
@@ -133,7 +144,8 @@ const Header = ({ type }) => {
                             <div className="headerSearchItem">
                                 <button
                                     className='headerSearchBtn'
-                                    onClick={handleSearch}>
+                                    onClick={handleSearch}
+                                >
                                     Search
                                 </button>
                             </div>

@@ -37,10 +37,10 @@ const NavBar = () => {
                     <>
                         <div className="navItems">
                             <Link to="/register">
-                                <button className="navBtn">Register</button>
+                                <button className="navBtn">Sign Up</button>
                             </Link>
                             <Link to="/login">
-                                <button className="navBtn">Login</button>
+                                <button className="navBtn">Sign In</button>
                             </Link>
                         </div>
                     </>

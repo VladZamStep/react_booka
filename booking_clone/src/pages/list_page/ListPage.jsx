@@ -10,6 +10,7 @@ import 'react-date-range/dist/theme/default.css';
 import SearchResult from '../../components/searchResult/SearchResult'
 import useFetch from '../../hooks/useFetch'
 import HeaderOptions from '../../components/header/header_components/header_options/HeaderOptions'
+import { dayDifference } from '../../components/daysDifference/daysDifference'
 
 const ListPage = () => {
 
@@ -21,6 +22,8 @@ const ListPage = () => {
     const [openOpt, setOpenOpt] = useState(false)
     const [min, setMin] = useState(undefined)
     const [max, setMax] = useState(undefined)
+
+    const days = (dayDifference(dates[0].endDate, dates[0].startDate));
 
     //Option's function
     const changeNum = (name, operation) => {
@@ -49,56 +52,61 @@ const ListPage = () => {
                 <div className="listWrapper">
                     <div className="listSearch">
                         <h1 className='listTitle'>Search</h1>
-                        <div className="listItem">
-                            <label className='specLabel'>Destination/property name:</label>
-                            <input
-                                className='specInput'
-                                type="text"
-                                placeholder={destination}
-                                onChange={e => {
-                                    const myRegex = /( |^)[a-z]/g;
-                                    const newValue = e.target.value.replace(myRegex, function (character) { return character.toUpperCase(); });
-                                    setDestination(newValue);
-                                }} />
-                        </div>
-                        <div className="listItem">
-                            <label className='specLabel'>Check-in Date</label>
-                            <span onClick={() => setOpenDate(!openDate)}
-                                className='dateOptionSpan'>{
-                                    `${format(dates[0].startDate, "MM/dd/yyyy")}
+                        <div className="listItems">
+                            <div className="listItem">
+                                <label className='specLabel'>Destination/property name:</label>
+                                <input
+                                    className='specInput'
+                                    type="text"
+                                    placeholder={destination}
+                                    onChange={e => {
+                                        const myRegex = /( |^)[a-z]/g;
+                                        const newValue = e.target.value.replace(myRegex, function (character) { return character.toUpperCase(); });
+                                        setDestination(newValue);
+                                    }} />
+                            </div>
+                            <div className="listItem">
+                                <div className="checkDatesLabels">
+                                    <label className='specLabel'>Check-in Date:</label>
+                                    <label className='daysDifference'>{days}-night stay</label>
+                                </div>
+                                <span onClick={() => setOpenDate(!openDate)}
+                                    className='dateOptionSpan'>{
+                                        `${format(dates[0].startDate, "MM/dd/yyyy")}
                                 to
                                 ${format(dates[0].endDate, "MM/dd/yyyy")}`
-                                }</span>
-                            {openDate && <DateRange
-                                className='dateR'
-                                onChange={item => setDates([item.selection])}
-                                ranges={dates}
-                                minDate={new Date}
-                            />}
-                            <label className='specLabel'>12-night stay</label>
+                                    }</span>
+                                {openDate && <DateRange
+                                    className='dateR'
+                                    onChange={item => setDates([item.selection])}
+                                    ranges={dates}
+                                    minDate={new Date}
+                                />}
+                            </div>
+                            <div className="listItem">
+                                <label className='specLabel'>Options:</label>
+                                <span className='dateOptionSpan' onClick={() => setOpenOpt(!openOpt)}>
+                                    {`${options.adults} adult · ${options.children} children · ${options.rooms} room`}
+                                </span>
+                                {openOpt &&
+                                    <div className="listOptions">
+                                        <HeaderOptions changeNum={changeNum} options={options} />
+                                    </div>}
+                            </div>
+                            <div className="listAdd">
+                                <span className='listAddType'>
+                                    Min Price <small>(per night)</small>
+                                </span>
+                                <input type="number" placeholder='' onChange={(e) => setMin(e.target.value)} />
+                            </div>
+                            <div className="listAdd">
+                                <span className='listAddType'>
+                                    Max Price <small>(per night)</small>
+                                </span>
+                                <input type="number" placeholder='' onChange={(e) => setMax(e.target.value)} />
+                            </div>
+                            <button className='searchBtn' onClick={handleSearch}>Search</button>
                         </div>
-                        <div className="listItem">
-                            <span className='dateOptionSpan' onClick={() => setOpenOpt(!openOpt)}>
-                                {`${options.adults} adult · ${options.children} children · ${options.rooms} room`}
-                            </span>
-                        </div>
-                        {openOpt &&
-                            <div className="listOptions">
-                                <HeaderOptions changeNum={changeNum} options={options} />
-                            </div>}
-                        <div className="listAdd">
-                            <span className='listAddType'>
-                                Min Price <small>(per night)</small>
-                            </span>
-                            <input type="number" placeholder='' onChange={(e) => setMin(e.target.value)} />
-                        </div>
-                        <div className="listAdd">
-                            <span className='listAddType'>
-                                Max Price <small>(per night)</small>
-                            </span>
-                            <input type="number" placeholder='' onChange={(e) => setMax(e.target.value)} />
-                        </div>
-                        <button className='searchBtn' onClick={handleSearch}>Search</button>
                     </div>
 
                     <div className="listResult">
@@ -113,7 +121,7 @@ const ListPage = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 export default ListPage;
