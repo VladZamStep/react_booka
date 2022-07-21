@@ -84,3 +84,12 @@ export const roomColumns = [
     minWidth: 120,
   },
 ];
+
+export const subcribedEmails = [
+  { field: "_id", headerName: "ID", minWidth: 250 },
+  {
+    field: "email",
+    headerName: "Email",
+    minWidth: 300,
+  },
+]

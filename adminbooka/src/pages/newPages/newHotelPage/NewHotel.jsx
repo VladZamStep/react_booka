@@ -72,7 +72,7 @@ const NewHotel = () => {
                             <form>
                                 <div className="formInput">
                                     <label htmlFor='file'>
-                                        Image: <ImFolderUpload className="icon" />
+                                        Images: <ImFolderUpload className="icon" />
                                     </label>
                                     <input
                                         type="file"

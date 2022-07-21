@@ -1,5 +1,6 @@
 @import "src/scss/abstracts/_variables";
 @import "src/scss/abstracts/_mixins";
+@import "src/scss/components/_buttons";
 
 .mainPage {
     display: flex;
@@ -32,10 +33,6 @@
                 padding: 1.1em;
                 position: relative;
                 border-radius: $smallBR;
-
-                .editBtn {
-                    @include editBtn;
-                }
 
                 .item {
                     display: flex;

@@ -1,7 +1,6 @@
 import { useContext } from 'react'
-import { MdOutlineLocalHotel, MdOutlineMeetingRoom, MdComputer, MdLogout } from 'react-icons/md'
+import { MdOutlineLocalHotel, MdOutlineMeetingRoom, MdOutlineMarkEmailRead, MdLogout } from 'react-icons/md'
 import { FaRegUser } from 'react-icons/fa'
-import { GiBrain } from 'react-icons/gi'
 import { FiSettings } from 'react-icons/fi'
 import { CgProfile } from 'react-icons/cg'
 import { Link, useNavigate } from 'react-router-dom'
@@ -52,15 +51,13 @@ const Sidebar = () => {
                         <MdLogout className='icon' />
                         <span>Logout</span>
                     </li>
-                    <p className="title">SERVICE</p>
-                    <li className="unavailable">
-                        <MdComputer className='icon unavailable' />
-                        <span className='unavailable'>System Health</span>
-                    </li>
-                    <li className="unavailable">
-                        <GiBrain className='icon unavailable' />
-                        <span className='unavailable'>Logs</span>
-                    </li>
+                    <p className="title">OTHER</p>
+                    <Link to='/subscribedEmails'>
+                        <li>
+                            <MdOutlineMarkEmailRead className='icon' />
+                            <span>Subscribed Emails</span>
+                        </li>
+                    </Link>
                     <li className="unavailable">
                         <FiSettings className='icon unavailable' />
                         <span className='unavailable'>Settings</span>

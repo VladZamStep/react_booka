@@ -11,6 +11,7 @@
     align-items: center;
     gap: 1em;
     padding: 2.75em;
+    position: relative;
 
     @include for-phone-only {
         padding: 1.5em 1em;
@@ -73,6 +74,44 @@
             display: flex;
             flex-direction: column;
             gap: .5em;
+        }
+    }
+
+    .successContainer {
+        position: absolute;
+        min-width: 350px;
+        width: 500px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: .75rem;
+        font-weight: 100;
+        background-color: $lightBlackTransparent;
+        color: $white;
+        backdrop-filter: blur(10px);
+        padding: 3em 1em;
+        border-radius: $smallBR;
+        z-index: 2;
+        text-align: center;
+        @include standartBlackShadowMixin;
+        @include flexCenterObject;
+        flex-direction: column;
+        gap: 1.5em;
+
+        .backBtn {
+            height: 50px;
+            width: 50%;
+            padding-inline: 1.1em;
+            outline: none;
+            border: none;
+            background-color: $middleBlue;
+            color: $white;
+            border-radius: $smallBR;
+            cursor: pointer;
+            transition: $transition;
+
+            &:hover {
+                background-color: $lightBlue;
+            }
         }
     }
 }

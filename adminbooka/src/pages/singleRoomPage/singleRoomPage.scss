@@ -1,5 +1,6 @@
 @import "src/scss/abstracts/_variables";
 @import "src/scss/abstracts/_mixins";
+@import "src/scss/components/_buttons";
 
 .singleRoomPage {
     display: flex;
@@ -41,11 +42,6 @@
                 position: relative;
                 border-radius: $smallBR;
 
-                .editBtn {
-                    @include editBtn;
-                }
-
-
                 .details {
                     @include infoDetails;
 
@@ -55,7 +51,6 @@
                         }
                     }
                 }
-
             }
         }
 

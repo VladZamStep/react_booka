@@ -23,14 +23,13 @@ const NewRoom = () => {
     const handleSend = async (e) => {
         e.preventDefault();
         const roomNumbers = rooms.split(",").map((room) => ({ number: room }));
-        console.log(roomNumbers)
         try {
             await axios.post(`http://localhost:8800/api/rooms/${hotelId}`, { ...info, roomNumbers })
         } catch (err) {
             console.log(err)
         }
     }
-    console.log(data)
+
     return (
         <div className='newRoomPage'>
             <Navbar />

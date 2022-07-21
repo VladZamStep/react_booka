@@ -3,7 +3,7 @@ import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom';
 import { AuthContext } from './components/context/AuthContext';
 import { DarkModeContext } from './components/context/darkModeContext';
 import MainProfile from './components/mainProfile/MainProfile';
-import { hotelColumns, roomColumns, userColumns } from './datatablesource';
+import { hotelColumns, roomColumns, subcribedEmails, userColumns } from './datatablesource';
 import { userInputs } from './formSource';
 import HomePage from './pages/homePage/HomePage';
 import ListPage from './pages/listPage/ListPage';
@@ -14,6 +14,7 @@ import NewUser from './pages/newPages/newUserPage/NewUser';
 import SingleHotelPage from './pages/singleHotelPage/SingleHotelPage';
 import SingleRoomPage from './pages/singleRoomPage/SingleRoomPage';
 import SingleUserPage from './pages/singleUserPage/SingleUserPage';
+import SubscribedEmailsPage from './pages/subscribedEmailsPage/SubscribedEmailsPage';
 import './scss/darkStyle/dark.scss'
 
 const App = () => {
@@ -93,6 +94,13 @@ const App = () => {
               <Route path='new' element={
                 <ProtectedRoute>
                   <NewRoom />
+                </ProtectedRoute>
+              } />
+            </Route>
+            <Route path='subscribedEmails'>
+              <Route index element={
+                <ProtectedRoute>
+                  <SubscribedEmailsPage columns={subcribedEmails} />
                 </ProtectedRoute>
               } />
             </Route>

@@ -3,13 +3,13 @@ export const userInputs = [
     id: "username",
     label: "Username",
     type: "text",
-    placeholder: "john_doe",
+    placeholder: "Mark_Revo",
   },
   {
     id: "email",
     label: "Email",
     type: "email",
-    placeholder: "john_doe@gmail.com",
+    placeholder: "markrevo@gmail.com",
   },
   {
     id: "phone",
@@ -21,6 +21,7 @@ export const userInputs = [
     id: "password",
     label: "Password",
     type: "password",
+    placeholder: "********",
   },
   {
     id: "country",
@@ -32,7 +33,7 @@ export const userInputs = [
     id: "city",
     label: "City",
     type: "text",
-    placeholder: "USA",
+    placeholder: "Portland",
   },
 ];
 
@@ -41,43 +42,43 @@ export const hotelInputs = [
     id: "name",
     label: "Name",
     type: "text",
-    placeholder: "The Westin Los Angeles Airport",
+    placeholder: "Hotel Figueroa, Unbound Collection by Hyatt",
   },
   {
     id: "city",
     label: "City",
     type: "text",
-    placeholder: "New York",
+    placeholder: "Los Angeles",
   },
   {
     id: "address",
     label: "Address",
     type: "text",
-    placeholder: "Elton st, 216",
+    placeholder: "939 South Figueroa Street, Downtown LA, Los Angeles",
   },
   {
     id: "distance",
     label: "Distance from City Center",
     type: "text",
-    placeholder: "500 (m)",
+    placeholder: "2000 (m)",
   },
   {
     id: "title",
     label: "Title",
     type: "text",
-    placeholder: "The best Hotel",
+    placeholder: "Stay in the heart of Los Angeles",
   },
   {
     id: "shortDescription",
     label: "Short Description",
     type: "text",
-    placeholder: "Executive King Room",
+    placeholder: "Hotel Figueroa, Unbound Collection by Hyatt has been welcoming Booking.com guests since Aug 1, 2014",
   },
   {
     id: "cheapestPrice",
     label: "Price",
     type: "text",
-    placeholder: "100 ($)",
+    placeholder: "172 ($)",
   },
   {
     id: "textRating",
@@ -89,7 +90,7 @@ export const hotelInputs = [
     id: "rating",
     label: "Rating",
     type: "text",
-    placeholder: "10.0",
+    placeholder: "8.5",
   },
 ];
 
@@ -98,19 +99,19 @@ export const roomInputs = [
     id: "title",
     label: "Title",
     type: "text",
-    placeholder: "2 bed room",
+    placeholder: "King Room",
   },
   {
     id: "description",
     label: "Description",
     type: "text",
-    placeholder: "King size bed, 1 bathroom",
+    placeholder: "This double room has a flat-screen TV and air conditioning.",
   },
   {
     id: "price",
     label: "Price",
     type: "number",
-    placeholder: "100",
+    placeholder: "212 ($)",
   },
   {
     id: "maxPeople",

@@ -9,11 +9,9 @@ import './navbar.scss'
 
 const Navbar = () => {
 
-    const defaultNoPhoto = "https://i.pinimg.com/280x280_RS/2e/45/66/2e4566fd829bcf9eb11ccdb5f252b02f.jpg";
+    const DEFAULT_NO_PHOTO = "https://i.pinimg.com/280x280_RS/2e/45/66/2e4566fd829bcf9eb11ccdb5f252b02f.jpg";
     const { user } = useContext(AuthContext);
     const { darkMode, dispatch } = useContext(DarkModeContext);
-
-    console.log(user)
 
     return (
         <div className='navbar'>
@@ -36,7 +34,7 @@ const Navbar = () => {
                     <BsListNested className='icon' />
                 </div>
                 <div className="item">
-                    <img src={user.img ? user.img : defaultNoPhoto}
+                    <img src={user.img ? user.img : DEFAULT_NO_PHOTO}
                         alt="profilePhoto"
                         className='profilePhoto'
                     />

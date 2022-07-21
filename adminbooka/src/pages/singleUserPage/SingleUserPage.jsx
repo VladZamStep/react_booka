@@ -6,8 +6,8 @@ import Sidebar from '../../components/sidebar/Sidebar'
 import './singleUserPage.scss'
 
 const SingleUserPage = () => {
-    const defaultNoPhoto = "https://i.pinimg.com/280x280_RS/2e/45/66/2e4566fd829bcf9eb11ccdb5f252b02f.jpg";
-    const noInfo = "no information";
+    const DEFAULT_NO_PHOTO = "https://i.pinimg.com/280x280_RS/2e/45/66/2e4566fd829bcf9eb11ccdb5f252b02f.jpg";
+    const NO_INFO = "no information";
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -26,11 +26,10 @@ const SingleUserPage = () => {
                 <Sidebar />
                 <div className="singleUserPageWrapper">
                     <div className="singleUserItems">
-                        <div className="editBtn">Edit</div>
                         <h1 className="infoTitle">Information</h1>
                         <div className="item">
                             <div className="photosInfo">
-                                <img src={data.img || defaultNoPhoto}
+                                <img src={data.img || DEFAULT_NO_PHOTO}
                                     alt=""
                                     className='itemImg'
                                 />
@@ -43,15 +42,15 @@ const SingleUserPage = () => {
                                 </div>
                                 <div className="delailItem">
                                     <span className="itemKey">Phone:</span>
-                                    <span className="itemValue">{data.phone || noInfo}</span>
+                                    <span className="itemValue">{data.phone || NO_INFO}</span>
                                 </div>
                                 <div className="delailItem">
                                     <span className="itemKey">Country:</span>
-                                    <span className="itemValue">{data.country || noInfo}</span>
+                                    <span className="itemValue">{data.country || NO_INFO}</span>
                                 </div>
                                 <div className="delailItem">
                                     <span className="itemKey">City:</span>
-                                    <span className="itemValue">{data.city || noInfo}</span>
+                                    <span className="itemValue">{data.city || NO_INFO}</span>
                                 </div>
                             </div>
                         </div>

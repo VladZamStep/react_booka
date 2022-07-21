@@ -6,8 +6,8 @@ import { AuthContext } from '../context/AuthContext'
 import './mainProfile.scss'
 
 const MainProfile = () => {
-    const defaultNoPhoto = "https://i.pinimg.com/280x280_RS/2e/45/66/2e4566fd829bcf9eb11ccdb5f252b02f.jpg";
-    const noInfo = "no information";
+    const DEFAULT_NO_PHOTO = "https://i.pinimg.com/280x280_RS/2e/45/66/2e4566fd829bcf9eb11ccdb5f252b02f.jpg";
+    const NO_INFO = "no information";
 
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -16,7 +16,6 @@ const MainProfile = () => {
         navigate("/")
     }
 
-    console.log(user)
     return (
         <div className='mainPage'>
             <Navbar />
@@ -24,11 +23,10 @@ const MainProfile = () => {
                 <Sidebar />
                 <div className="mainWrapper">
                     <div className="mainItems">
-                        <div className="editBtn">Edit</div>
                         <h1 className="infoTitle">Information</h1>
                         <div className="item">
                             <div className="photosInfo">
-                                <img src={user.img || defaultNoPhoto}
+                                <img src={user.img || DEFAULT_NO_PHOTO}
                                     alt=""
                                     className='itemImg'
                                 />
@@ -41,15 +39,15 @@ const MainProfile = () => {
                                 </div>
                                 <div className="delailItem">
                                     <span className="itemKey">Phone:</span>
-                                    <span className="itemValue">{user.phone || noInfo}</span>
+                                    <span className="itemValue">{user.phone || NO_INFO}</span>
                                 </div>
                                 <div className="delailItem">
                                     <span className="itemKey">Country:</span>
-                                    <span className="itemValue">{user.country || noInfo}</span>
+                                    <span className="itemValue">{user.country || NO_INFO}</span>
                                 </div>
                                 <div className="delailItem">
                                     <span className="itemKey">City:</span>
-                                    <span className="itemValue">{user.city || noInfo}</span>
+                                    <span className="itemValue">{user.city || NO_INFO}</span>
                                 </div>
                             </div>
                         </div>

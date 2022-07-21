@@ -9,7 +9,6 @@ const SingleHotelPage = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    console.log(location)
     const id = location.pathname.split("/")[2]
     const { data } = useFetch(`http://localhost:8800/api/hotels/find/${id}`)
 
@@ -17,7 +16,6 @@ const SingleHotelPage = () => {
         navigate("/hotels")
     }
 
-    console.log(data)
     return (
         <div className='singleHotelPage'>
             <Navbar />
@@ -25,7 +23,6 @@ const SingleHotelPage = () => {
                 <Sidebar />
                 <div className="singleHotelPageWrapper">
                     <div className="singleHotelItems">
-                        <div className="editBtn">Edit</div>
                         <h1 className="infoTitle">Information</h1>
                         <div className="item">
                             <div className="photosInfo">
