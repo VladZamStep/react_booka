@@ -1,16 +1,16 @@
 import React from 'react'
 import useFetch from '../../hooks/useFetch.js'
+import Loading from '../loading/Loading.jsx';
 import './displayed.scss'
+import LoadingDisplayed from './loadingDisplayed/LoadingDisplayed.jsx';
 const Displayed = () => {
 
-    const loadingMessage = "Loading...";
     const { data, loading, error } = useFetch("http://localhost:8800/api/hotels/countByCity?cities=london,madrid,rome")
-    console.log(data);
 
     return (
         <div className='displayContainer'>
             <div className='displayed'>
-                {loading ? loadingMessage : (
+                {loading ? <LoadingDisplayed /> : (
                     <>
                         <div className="displayedItem">
                             <img className="displayedImg"

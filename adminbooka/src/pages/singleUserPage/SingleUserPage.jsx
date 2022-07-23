@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import useFetch from '../../components/hooks/useFetch'
 import Navbar from '../../components/navbar/Navbar'
 import Sidebar from '../../components/sidebar/Sidebar'
+import { Link } from 'react-router-dom'
 import './singleUserPage.scss'
 
 const SingleUserPage = () => {
@@ -27,6 +28,9 @@ const SingleUserPage = () => {
                 <div className="singleUserPageWrapper">
                     <div className="singleUserItems">
                         <h1 className="infoTitle">Information</h1>
+                        <Link to={`/users/${id}/updateUser`}>
+                            <button className="editBtn">Edit</button>
+                        </Link>
                         <div className="item">
                             <div className="photosInfo">
                                 <img src={data.img || DEFAULT_NO_PHOTO}

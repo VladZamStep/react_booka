@@ -15,6 +15,7 @@ import SingleHotelPage from './pages/singleHotelPage/SingleHotelPage';
 import SingleRoomPage from './pages/singleRoomPage/SingleRoomPage';
 import SingleUserPage from './pages/singleUserPage/SingleUserPage';
 import SubscribedEmailsPage from './pages/subscribedEmailsPage/SubscribedEmailsPage';
+import UpdateUserPage from './pages/updatePages/updateUserPage/UpdateUserPage';
 import './scss/darkStyle/dark.scss'
 
 const App = () => {
@@ -55,6 +56,11 @@ const App = () => {
               <Route path=':userId' element={
                 <ProtectedRoute>
                   <SingleUserPage />
+                </ProtectedRoute>
+              } />
+              <Route path=':userId/updateUser' element={
+                <ProtectedRoute>
+                  <UpdateUserPage />
                 </ProtectedRoute>
               } />
               <Route path='new' element={

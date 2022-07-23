@@ -34,6 +34,26 @@
                 position: relative;
                 border-radius: $smallBR;
 
+                .editBtn {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    font-size: .9rem;
+                    font-weight: 300;
+                    padding: .4em .6em;
+                    outline: none;
+                    border: none;
+                    border-radius: 0 $smallBR 0 $smallBR;
+                    background-color: $lightBlue;
+                    color: $white;
+                    transition: $transition;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: $middleBlue;
+                    }
+                }
+
                 .item {
                     display: flex;
                     gap: 1.5em;

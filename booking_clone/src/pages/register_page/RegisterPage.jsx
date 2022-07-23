@@ -9,7 +9,7 @@ import { MdClose } from 'react-icons/md'
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-const defaultNoPhoto = "https://i.pinimg.com/280x280_RS/2e/45/66/2e4566fd829bcf9eb11ccdb5f252b02f.jpg";
+const DEFAULT_NO_PHOTO = "https://i.pinimg.com/280x280_RS/2e/45/66/2e4566fd829bcf9eb11ccdb5f252b02f.jpg";
 
 const RegisterPage = () => {
 
@@ -56,7 +56,7 @@ const RegisterPage = () => {
     const handleClick = async (e) => {
         e.preventDefault();
         const data = new FormData();
-        data.append("file", file ? file : defaultNoPhoto);
+        data.append("file", file ? file : DEFAULT_NO_PHOTO);
         data.append("upload_preset", "uploadZam");
         try {
             const uploadRes = await axios.post("https://api.cloudinary.com/v1_1/zamnoise/image/upload", data)

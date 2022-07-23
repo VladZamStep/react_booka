@@ -11,6 +11,7 @@ import SearchResult from '../../components/searchResult/SearchResult'
 import useFetch from '../../hooks/useFetch'
 import HeaderOptions from '../../components/header/header_components/header_options/HeaderOptions'
 import { dayDifference } from '../../components/daysDifference/daysDifference'
+import Loading from '../../components/loading/Loading'
 
 const ListPage = () => {
 
@@ -110,7 +111,7 @@ const ListPage = () => {
                     </div>
 
                     <div className="listResult">
-                        {loading ? loadingMessage : (
+                        {loading ? <Loading /> : (
                             <>
                                 {data.map(element => (
                                     <SearchResult element={element} key={element._id} />

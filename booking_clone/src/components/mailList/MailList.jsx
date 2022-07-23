@@ -52,6 +52,9 @@ const MailList = () => {
                     <h1 className="successMessage">
                         You're subscribed successfully!
                     </h1>
+                    <span className="moreInfoSpan">
+                        Go back and see more!
+                    </span>
                     <button className="backBtn" onClick={() => setOpenSuccess(false)}>Back</button>
                 </div>}
         </div>

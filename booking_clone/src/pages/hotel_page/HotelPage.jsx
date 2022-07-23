@@ -12,6 +12,7 @@ import { useLocation } from 'react-router-dom'
 import { useContext } from 'react'
 import { SearchContext } from '../../context/SearchContext'
 import { dayDifference } from '../../components/daysDifference/daysDifference'
+import Loading from '../../components/loading/Loading'
 
 const HotelPage = () => {
 
@@ -55,9 +56,9 @@ const HotelPage = () => {
         <div className='hotelPage'>
             <NavBar />
             <Header type="list" />
-            {loading ? loadingMessage :
-                (
-                    <div className="hotelContainer">
+            <div className="hotelContainer">
+                {loading ? <Loading /> :
+                    (<>
                         {open && <div className="slider">
                             <div className="sliderContainer">
                                 <div className="sliderWrapper">
@@ -108,7 +109,8 @@ const HotelPage = () => {
                                 id={id}
                             />
                         </div>
-                    </div>)}
+                    </>)}
+            </div>
             <div className="mailFooter">
                 <MailList />
                 <Footer />

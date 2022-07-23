@@ -1,14 +1,14 @@
 import useFetch from '../../hooks/useFetch';
+import LoadingPreferdList from './loadingPreferdList/LoadingPreferdList';
 import './preferedList.scss';
 
 const PreferedList = () => {
 
-    const loadingMessage = "Loading...";
     const { data, loading } = useFetch("http://localhost:8800/api/hotels?featured=true");
 
     return (
         < div className='prefList' >
-            {loading ? loadingMessage : (
+            {loading ? <LoadingPreferdList /> : (
                 <>
                     {data.map(element => (
                         <div className="prefListItem" key={element._id}>
