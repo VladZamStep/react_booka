@@ -10,8 +10,8 @@ const TypeArea = (props) => {
                 <option value="apartments">Apartment</option>
                 <option value="resorts">Resort</option>
                 <option value="villas">Villa</option>
-                <option value="cabins">Cabin</option>
-                <option value="cottages">Cottage</option>
+                <option value="motels">Motel</option>
+                <option value="hostels">Hostel</option>
             </select>
         </div>
 

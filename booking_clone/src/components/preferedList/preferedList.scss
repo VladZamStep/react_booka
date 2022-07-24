@@ -9,6 +9,7 @@
     justify-content: space-between;
     padding: 0 1.2rem 1.5rem 1.2rem;
 
+
     @include for-desktop-up {
         padding: 0 0 1.5rem 0;
     }
@@ -59,10 +60,12 @@
         }
 
         .prefPrice {
+            color: $black;
             margin-bottom: .15rem;
         }
 
         .prefRating {
+            color: $black;
             padding: .4em 0;
 
             button {

@@ -74,6 +74,11 @@ export const roomColumns = [
     minWidth: 300,
   },
   {
+    field: "hotelName",
+    headerName: "Hotel",
+    minWidth: 300,
+  },
+  {
     field: "price",
     headerName: "Price",
     minWidth: 100,

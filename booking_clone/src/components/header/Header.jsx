@@ -6,7 +6,7 @@ import { faBed, faCalendarDays, faPerson } from '@fortawesome/free-solid-svg-ico
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { DateRange } from 'react-date-range';
-import { format, getDate } from 'date-fns';
+import { format } from 'date-fns';
 import HeaderList from './header_components/HeaderList';
 import { useContext } from 'react';
 import { SearchContext } from '../../context/SearchContext';

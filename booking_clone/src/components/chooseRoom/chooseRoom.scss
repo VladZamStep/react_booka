@@ -9,6 +9,8 @@
     top: 0;
     left: 0;
     @include flexCenterObject;
+    z-index: 2;
+    overflow: scroll;
 
     .chooseRoomContainer {
         display: flex;
@@ -19,6 +21,13 @@
         border-radius: $smallBR;
         @include standartBlackShadowMixin;
         min-width: 500px;
+        overflow: scroll;
+
+        @include for-tablet-landscape-up {
+            max-height: 95vh;
+            padding: 1em;
+            width: 90%;
+        }
 
         @include for-phone-only {
             padding: .75em;
@@ -53,8 +62,8 @@
             gap: 2em;
             padding: 1em;
 
-            @include for-phone-only {
-                padding: 1em .5em;
+            @include for-tablet-landscape-up {
+                padding: .5em;
             }
 
             .cRItemInfo {
@@ -114,6 +123,10 @@
             &:hover {
                 background-color: $middleBlue;
                 @include thinShadowMixin;
+            }
+
+            @include for-tablet-landscape-up {
+                padding-block: .5em;
             }
         }
     }

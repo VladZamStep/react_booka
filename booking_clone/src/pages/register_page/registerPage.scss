@@ -2,13 +2,9 @@
 @import "src/scss/abstracts/_mixins";
 
 .registerPage {
-    min-height: 100vh;
+    height: 100vh;
     @include flexCenterObject;
     flex-direction: column;
-
-    @include for-phone-only {
-        height: fit-content;
-    }
 
     .backgroundImg {
         width: 100%;
@@ -16,12 +12,6 @@
         position: absolute;
         z-index: -50;
         object-fit: cover;
-
-        @include for-phone-only {
-            height: 100%;
-            object-fit: cover;
-        }
-
     }
 
     &::after {
@@ -33,11 +23,6 @@
         height: 100%;
         z-index: -40;
         background-color: $lightBlackTransparent;
-
-        @include for-phone-only {
-            height: 100%;
-            object-fit: cover;
-        }
     }
 
     .registerContainer {
@@ -49,10 +34,17 @@
         backdrop-filter: blur(5px);
         border-radius: $smallBR;
 
-        @include for-phone-only {
-            width: 100%;
-            height: fit-content;
-            border-radius: none;
+        @include for-big-desktop-up {
+            max-height: 100vh;
+        }
+
+        @include for-desktop-up {
+            max-height: 95vh;
+        }
+
+        @include for-tablet-landscape-up {
+            overflow: scroll;
+            max-height: 90vh;
         }
 
         form {
