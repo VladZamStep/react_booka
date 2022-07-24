@@ -62,6 +62,10 @@
                 cursor: pointer;
             }
 
+            &:last-child {
+                cursor: pointer;
+            }
+
             .profilePhoto {
                 width: 32px;
                 height: 32px;

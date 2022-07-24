@@ -33,12 +33,14 @@ const Navbar = () => {
                 <div className="item">
                     <BsListNested className='icon' />
                 </div>
-                <div className="item">
-                    <img src={user.img ? user.img : DEFAULT_NO_PHOTO}
-                        alt="profilePhoto"
-                        className='profilePhoto'
-                    />
-                </div>
+                <Link to={'/profile'}>
+                    <div className="item">
+                        <img src={user.img ? user.img : DEFAULT_NO_PHOTO}
+                            alt="profilePhoto"
+                            className='profilePhoto'
+                        />
+                    </div>
+                </Link>
             </div>
         </div>
     )
